@@ -7,20 +7,36 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(165deg, #0a0e1a 0%, #111827 25%, #1a2332 50%, #0f172a 75%, #080c14 100%);
+            background-attachment: fixed;
             min-height: 100vh;
-            color: #333;
-            line-height: 1.8;
+            color: #334155;
+            line-height: 1.7;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
         header {
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 28px;
+            padding: 48px 40px;
             text-align: center;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            margin-bottom: 32px;
+            box-shadow: 
+                0 24px 64px rgba(0, 0, 0, 0.28),
+                0 6px 16px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f43f5e);
+            opacity: 0.85;
         }
         .school-info {
             display: flex;
@@ -39,54 +55,108 @@
         .school-name { text-align: left; }
         .school-name h3 { color: #2c5aa0; font-size: 1.3em; }
         .school-name p { color: #666; font-size: 0.9em; }
-        h1 { color: #2c5aa0; font-size: 2.5em; margin: 20px 0 10px; }
+        h1 { color: #1e40af; font-size: 2.6em; margin: 20px 0 10px; font-weight: 700; letter-spacing: -0.5px; }
         .subtitle { color: #666; font-size: 1.2em; }
         .day-nav {
             display: flex;
-            gap: 8px;
+            gap: 12px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
             position: sticky;
-            top: 10px;
+            top: 14px;
             z-index: 100;
-            padding: 12px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            padding: 16px 22px;
+            background: rgba(255, 255, 255, 0.94);
+            border-radius: 20px;
+            backdrop-filter: blur(20px) saturate(1.2);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.18),
+                0 3px 10px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
         .day-nav a {
             text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s;
+            padding: 11px 20px;
+            border-radius: 28px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
             font-size: 0.85em;
+            letter-spacing: 0.4px;
+            box-shadow: 
+                0 3px 10px rgba(99, 102, 241, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .day-nav a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+            background: linear-gradient(135deg, #4338ca 0%, #5b21b6 50%, #7c3aed 100%);
         }
         .day-nav a.active {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #db2777 0%, #ec4899 50%, #f43f5e 100%);
+            box-shadow: 0 4px 18px rgba(236, 72, 153, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .day-section {
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-radius: 28px;
+            padding: 44px;
+            margin-bottom: 32px;
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.18),
+                0 4px 16px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .day-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #f43f5e);
+            opacity: 0.7;
         }
         .day-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3730a3 0%, #5b21b6 30%, #4f46e5 60%, #6366f1 100%);
             color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            padding: 36px;
+            border-radius: 20px;
+            margin-bottom: 32px;
             text-align: center;
+            box-shadow: 
+                0 12px 40px rgba(79, 70, 229, 0.3),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .day-header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -30%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        .day-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
         .day-header h2 {
             font-size: 2em;
@@ -115,11 +185,12 @@
         }
         .notebook-area {
             background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
-            border-left: 6px solid #ffc107;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #ffc107;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(255, 193, 7, 0.08);
         }
         .notebook-area::before {
             content: "📓 COPIAR EN CUADERNO";
@@ -135,11 +206,12 @@
         }
         .computer-area {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border-left: 6px solid #2196F3;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #2196F3;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(33, 150, 243, 0.06);
         }
         .computer-area::before {
             content: "💻 TRABAJAR EN COMPUTADORA";
@@ -155,11 +227,12 @@
         }
         .image-area {
             background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            border-left: 6px solid #4CAF50;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #4CAF50;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(76, 175, 80, 0.06);
         }
         .image-area::before {
             content: "🖼️ IMÁGENES ILUSTRATIVAS";
@@ -175,11 +248,12 @@
         }
         .definition-area {
             background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-            border-left: 6px solid #9C27B0;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #9C27B0;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(156, 39, 176, 0.06);
         }
         .definition-area::before {
             content: "📖 DEFINICIONES IMPORTANTES";
@@ -195,11 +269,12 @@
         }
         .exercise-area {
             background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border-left: 6px solid #FF9800;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #FF9800;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(255, 152, 0, 0.06);
         }
         .exercise-area::before {
             content: "🎯 EJERCICIOS PRÁCTICOS";
@@ -215,11 +290,12 @@
         }
         .tip-area {
             background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
-            border-left: 6px solid #E91E63;
-            border-radius: 0 15px 15px 0;
+            border-left: 5px solid #E91E63;
+            border-radius: 0 16px 16px 0;
             padding: 30px;
             margin: 25px 0;
             position: relative;
+            box-shadow: 0 2px 12px rgba(233, 30, 99, 0.06);
         }
         .tip-area::before {
             content: "💡 CONSEJOS IMPORTANTES";
@@ -234,14 +310,16 @@
             width: fit-content;
         }
         h2 {
-            color: #2c5aa0;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+            color: #1e3a8a;
+            font-size: 1.9em;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #c7d2fe;
+            padding-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
         h3 { 
             color: #1a5276; 
@@ -284,23 +362,32 @@
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 24px 0;
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 
+                0 6px 24px rgba(0, 0, 0, 0.08),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
         }
         .comparison-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3730a3 0%, #5b21b6 50%, #7c3aed 100%);
             color: white;
-            padding: 15px;
+            padding: 18px;
             text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            font-size: 0.95em;
         }
         .comparison-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+            padding: 18px;
+            border-bottom: 1px solid #f1f5f9;
+            color: #475569;
+            transition: background 0.2s ease;
         }
-        .comparison-table tr:hover { background: #f8f9fa; }
+        .comparison-table tr:hover { background: #f1f5f9; }
+        .comparison-table tr:last-child td { border-bottom: none; }
         .checklist {
             list-style: none;
             padding: 0;
@@ -326,11 +413,37 @@
             font-size: 0.9em;
         }
         .homework-box {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #be185d 0%, #db2777 30%, #ec4899 60%, #f43f5e 100%);
             color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 20px;
+            padding: 32px;
+            border-radius: 22px;
+            margin-top: 24px;
+            box-shadow: 
+                0 12px 32px rgba(236, 72, 153, 0.28),
+                0 4px 12px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .homework-box::before {
+            content: '';
+            position: absolute;
+            top: -25%;
+            right: -25%;
+            width: 55%;
+            height: 55%;
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .homework-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
         }
         .homework-box h4 {
             color: white;
@@ -338,9 +451,12 @@
         }
         footer {
             text-align: center;
-            padding: 30px;
-            color: white;
-            font-size: 1.1em;
+            padding: 40px 30px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05em;
+        }
+        footer p {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         .teacher-info {
             margin-top: 20px;
@@ -358,76 +474,159 @@
             .day-nav a { padding: 8px 12px; font-size: 0.8em; }
         }
     
-        /* Clock widget styles */
+/* ===== CLOCK WIDGET WITH CHANGING BACKGROUND IMAGES ===== */
         .clock-widget {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
             color: #fff;
-            padding: 15px 25px;
-            border-radius: 15px;
+            padding: 26px 34px;
+            border-radius: 22px;
             text-align: center;
-            margin: 20px auto;
-            max-width: 600px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
+            margin: 28px auto;
+            max-width: 640px;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .clock-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .clock-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            border-radius: 15px;
+            transform: scale(1.08);
+        }
+        .clock-bg-image.active {
+            opacity: 1;
+            animation: kenBurns 12s ease-in-out infinite;
+        }
+        @keyframes kenBurns {
+            0% { transform: scale(1.06) translate(0, 0); }
+            50% { transform: scale(1.12) translate(-0.5%, -0.5%); }
+            100% { transform: scale(1.06) translate(0, 0); }
+        }
+        .clock-bg-image.active {
+            opacity: 1;
+        }
+        .clock-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, 
+                rgba(15, 23, 42, 0.85) 0%, 
+                rgba(30, 41, 59, 0.8) 40%, 
+                rgba(15, 23, 42, 0.88) 100%);
+            z-index: 1;
+            border-radius: 20px;
+            backdrop-filter: blur(3px);
+        }
+        .clock-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
         .clock-time {
-            font-size: 2.2em;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 3px;
-            color: #00e5ff;
-            text-shadow: 0 0 10px rgba(0,229,255,0.5);
+            font-size: 2.6em;
+            font-weight: 200;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: 5px;
+            color: #f1f5f9;
+            text-shadow: 
+                0 0 30px rgba(148, 163, 184, 0.25),
+                0 2px 6px rgba(0, 0, 0, 0.5);
+            font-variant-numeric: tabular-nums;
         }
         .clock-date {
-            font-size: 1.1em;
-            margin-top: 5px;
-            color: #e0e0e0;
+            font-size: 1.05em;
+            margin-top: 8px;
+            color: #94a3b8;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
         .clock-task {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            border-left: 4px solid #ffc107;
+            margin-top: 12px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            border-left: 3px solid #f59e0b;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left-width: 3px;
+            max-width: 90%;
         }
         .clock-task-label {
-            font-size: 0.85em;
-            color: #ffc107;
+            font-size: 0.8em;
+            color: #fbbf24;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-        .clock-task-text {
-            font-size: 1em;
-            color: #fff;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
             font-weight: 500;
         }
+        .clock-task-text {
+            font-size: 0.95em;
+            color: #f1f5f9;
+            font-weight: 400;
+            line-height: 1.4;
+        }
         .clock-footer {
-            max-width: 500px;
-            margin: 20px auto 0;
-            padding: 12px 20px;
+            max-width: 480px;
+            margin: 24px auto 0;
+            padding: 14px 22px;
+            min-height: 100px;
         }
         .clock-footer .clock-time {
-            font-size: 1.4em;
+            font-size: 1.5em;
+            letter-spacing: 2px;
         }
         .clock-footer .clock-date {
-            font-size: 0.95em;
-        }
-        .clock-footer .clock-task {
-            padding: 8px 12px;
-        }
-        .clock-footer .clock-task-label {
-            font-size: 0.75em;
-        }
-        .clock-footer .clock-task-text {
             font-size: 0.9em;
         }
-        @media (max-width: 768px) {
-            .clock-time { font-size: 1.6em; letter-spacing: 1px; }
-            .clock-date { font-size: 0.95em; }
-            .clock-task-text { font-size: 0.9em; }
-            .clock-footer .clock-time { font-size: 1.1em; }
+        .clock-footer .clock-task {
+            padding: 8px 14px;
+            margin-top: 8px;
         }
+        .clock-footer .clock-task-label {
+            font-size: 0.72em;
+        }
+        .clock-footer .clock-task-text {
+            font-size: 0.85em;
+        }
+        @media (max-width: 768px) {
+            .clock-widget { padding: 16px 20px; min-height: 120px; }
+            .clock-time { font-size: 1.7em; letter-spacing: 2px; }
+            .clock-date { font-size: 0.9em; }
+            .clock-task { padding: 8px 12px; }
+            .clock-task-text { font-size: 0.85em; }
+            .clock-footer { padding: 10px 16px; }
+            .clock-footer .clock-time { font-size: 1.15em; }
+        }
+
+
 
     
         /* ===== SCROLL PROGRESS BAR ===== */
@@ -436,30 +635,33 @@
             top: 0;
             left: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f43f5e);
             z-index: 1000;
             width: 0%;
-            transition: width 0.1s;
-            box-shadow: 0 0 10px rgba(102,126,234,0.5);
+            transition: width 0.2s ease;
+            box-shadow: 0 0 16px rgba(99, 102, 241, 0.5);
         }
 
         /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            bottom: 32px;
+            right: 32px;
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
             border: none;
             border-radius: 50%;
-            font-size: 1.5em;
+            font-size: 1.3em;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 
+                0 8px 28px rgba(79, 70, 229, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 999;
             display: flex;
             align-items: center;
@@ -470,102 +672,141 @@
             visibility: visible;
         }
         .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102,126,234,0.5);
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 
+                0 12px 36px rgba(79, 70, 229, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* ===== DARK MODE TOGGLE ===== */
         .theme-toggle {
             position: fixed;
-            top: 15px;
-            right: 15px;
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.95);
+            top: 18px;
+            right: 18px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.96);
             border: none;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.3em;
             z-index: 1001;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s;
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.15),
+                0 1px 4px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(20deg);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
         }
 
         /* ===== DARK MODE STYLES ===== */
         body.dark-mode {
-            background: linear-gradient(135deg, #0a0a1a 0%, #0d1b2a 50%, #1b263b 100%);
+            background: linear-gradient(160deg, #020617 0%, #0f172a 40%, #1e1b4b 100%);
         }
         body.dark-mode header,
         body.dark-mode .day-section,
         body.dark-mode .day-nav {
-            background: rgba(30, 30, 50, 0.98);
-            color: #e0e0e0;
+            background: rgba(15, 23, 42, 0.97);
+            color: #e2e8f0;
+            border-color: rgba(255, 255, 255, 0.08);
         }
         body.dark-mode .day-nav a {
-            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
         body.dark-mode .day-nav a.active {
-            background: linear-gradient(135deg, #d53f8c 0%, #c53030 100%);
+            background: linear-gradient(135deg, #db2777 0%, #e11d48 100%);
         }
-        body.dark-mode h1 { color: #90cdf4; }
-        body.dark-mode h2 { color: #90cdf4; border-bottom-color: #667eea; }
-        body.dark-mode h3 { color: #a0d2eb; }
-        body.dark-mode h4 { color: #90cdf4; }
-        body.dark-mode .subtitle { color: #a0aec0; }
-        body.dark-mode .school-name h3 { color: #90cdf4; }
-        body.dark-mode .school-name p { color: #a0aec0; }
-        body.dark-mode .area-content p { color: #d0d0d0; }
-        body.dark-mode .area-content li { color: #d0d0d0; }
-        body.dark-mode .img-caption { color: #a0aec0; }
-        body.dark-mode .comparison-table { background: #1e1e3f; }
-        body.dark-mode .comparison-table td { border-bottom-color: #333; color: #d0d0d0; }
-        body.dark-mode .comparison-table tr:hover { background: #2a2a4a; }
+        body.dark-mode h1 { color: #93c5fd; }
+        body.dark-mode h2 { color: #93c5fd; border-bottom-color: #4f46e5; }
+        body.dark-mode h3 { color: #a5b4fc; }
+        body.dark-mode h4 { color: #93c5fd; }
+        body.dark-mode .subtitle { color: #94a3b8; }
+        body.dark-mode .school-name h3 { color: #93c5fd; }
+        body.dark-mode .school-name p { color: #94a3b8; }
+        body.dark-mode .area-content p { color: #cbd5e1; }
+        body.dark-mode .area-content li { color: #cbd5e1; }
+        body.dark-mode .img-caption { color: #94a3b8; }
+        body.dark-mode .comparison-table { background: #1e293b; border-color: #334155; }
+        body.dark-mode .comparison-table td { border-bottom-color: #334155; color: #cbd5e1; }
+        body.dark-mode .comparison-table tr:hover { background: #1e293b; }
         body.dark-mode .notebook-area,
         body.dark-mode .computer-area,
         body.dark-mode .image-area,
         body.dark-mode .definition-area,
         body.dark-mode .exercise-area,
         body.dark-mode .tip-area {
-            filter: brightness(0.85);
+            filter: brightness(0.88) saturate(0.9);
         }
         body.dark-mode .clock-widget {
-            background: linear-gradient(135deg, #0a0a1a 0%, #1b263b 50%, #2d3748 100%);
-            border-color: rgba(255,255,255,0.15);
+            border-color: rgba(255, 255, 255, 0.1);
         }
+        body.dark-mode .clock-bg-overlay {
+            background: linear-gradient(160deg, 
+                rgba(2, 6, 23, 0.9) 0%, 
+                rgba(15, 23, 42, 0.87) 40%, 
+                rgba(2, 6, 23, 0.92) 100%);
+        }
+        body.dark-mode .search-input {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-color: #334155;
+        }
+        body.dark-mode .search-results {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        body.dark-mode .search-result-item {
+            border-bottom-color: #334155;
+        }
+        body.dark-mode .search-result-item:hover {
+            background: #1e293b;
+        }
+        body.dark-mode .search-result-title { color: #93c5fd; }
+        body.dark-mode .search-result-preview { color: #94a3b8; }
 
         /* ===== SEARCH BAR ===== */
         .search-container {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 24px auto;
             position: relative;
         }
         .search-input {
             width: 100%;
-            padding: 14px 50px 14px 20px;
-            border: 2px solid #667eea;
-            border-radius: 30px;
+            padding: 16px 56px 16px 26px;
+            border: 2px solid #c7d2fe;
+            border-radius: 32px;
             font-size: 1em;
             outline: none;
-            transition: all 0.3s;
+            transition: all 0.4s ease;
             background: white;
-            color: #333;
+            color: #334155;
+            box-shadow: 
+                0 3px 12px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
         .search-input:focus {
-            border-color: #764ba2;
-            box-shadow: 0 0 15px rgba(102,126,234,0.3);
+            border-color: #6366f1;
+            box-shadow: 
+                0 0 24px rgba(99, 102, 241, 0.18), 
+                0 6px 16px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+        .search-input::placeholder {
+            color: #94a3b8;
         }
         .search-btn {
             position: absolute;
-            right: 5px;
+            right: 6px;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             border: none;
             color: white;
             width: 40px;
@@ -573,10 +814,14 @@
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.1em;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .search-btn:hover {
             transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
         }
         .search-results {
             position: absolute;
@@ -584,34 +829,36 @@
             left: 0;
             right: 0;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-height: 300px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            max-height: 320px;
             overflow-y: auto;
             z-index: 100;
             display: none;
-            margin-top: 8px;
+            margin-top: 10px;
+            border: 1px solid #f1f5f9;
         }
         .search-results.active { display: block; }
         .search-result-item {
-            padding: 12px 20px;
+            padding: 14px 22px;
             cursor: pointer;
-            border-bottom: 1px solid #eee;
-            transition: all 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.2s ease;
         }
         .search-result-item:hover {
             background: #f0f4ff;
         }
         .search-result-item:last-child { border-bottom: none; }
         .search-result-title {
-            font-weight: bold;
-            color: #2c5aa0;
+            font-weight: 600;
+            color: #4f46e5;
             font-size: 0.95em;
         }
         .search-result-preview {
-            color: #666;
+            color: #64748b;
             font-size: 0.85em;
-            margin-top: 3px;
+            margin-top: 4px;
+            line-height: 1.4;
         }
         body.dark-mode .search-input {
             background: #1e1e3f;
@@ -652,7 +899,7 @@
         }
         .area-content {
             overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease;
             max-height: 20000px;
             opacity: 1;
         }
@@ -684,8 +931,8 @@
             box-shadow: 0 0 15px rgba(240,147,251,0.5);
         }
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(240,147,251,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(240,147,251,0.7); }
         }
 
         /* ===== PRINT STYLES ===== */
@@ -720,11 +967,26 @@
             <p style="margin-top: 15px; color: #888;">Material organizado por dias para mejor aprendizaje</p>
             <p style="margin-top: 10px; color: #2c5aa0; font-weight: bold; font-size: 1.1em;">📅 Semana del 01 al 05 de Julio de 2026</p>
             <div id="header-clock" class="clock-widget">
-                <div class="clock-time">--:--:--</div>
-                <div class="clock-date">Cargando fecha...</div>
-                <div class="clock-task" style="display:none;">
-                    <div class="clock-task-label">📚 Tarea del dia</div>
-                    <div class="clock-task-text"></div>
+                <div class="clock-bg-wrapper">
+                    <div class="clock-bg-image active" data-index="0"></div>
+                    <div class="clock-bg-image" data-index="1"></div>
+                    <div class="clock-bg-image" data-index="2"></div>
+                    <div class="clock-bg-image" data-index="3"></div>
+                    <div class="clock-bg-image" data-index="4"></div>
+                    <div class="clock-bg-image" data-index="5"></div>
+                    <div class="clock-bg-image" data-index="6"></div>
+                    <div class="clock-bg-image" data-index="7"></div>
+                    <div class="clock-bg-image" data-index="8"></div>
+                    <div class="clock-bg-image" data-index="9"></div>
+                    <div class="clock-bg-overlay"></div>
+                </div>
+                <div class="clock-content">
+                    <div class="clock-time">--:--:--</div>
+                    <div class="clock-date">Cargando fecha...</div>
+                    <div class="clock-task" style="display:none;">
+                        <div class="clock-task-label">📚 Tarea del dia</div>
+                        <div class="clock-task-text"></div>
+                    </div>
                 </div>
             </div>
 
@@ -2430,11 +2692,26 @@
             <p style="margin-top: 10px; opacity: 0.8;">Indices, Revision, Documentos Profesionales y Colaboracion</p>
             <p style="margin-top: 5px; opacity: 0.8;">Semana del 01 al 05 de Julio de 2026</p>
                         <div id="footer-clock" class="clock-widget clock-footer">
-                <div class="clock-time">--:--:--</div>
-                <div class="clock-date">Cargando fecha...</div>
-                <div class="clock-task" style="display:none;">
-                    <div class="clock-task-label">📚 Tarea del dia</div>
-                    <div class="clock-task-text"></div>
+                <div class="clock-bg-wrapper">
+                    <div class="clock-bg-image active" data-index="0"></div>
+                    <div class="clock-bg-image" data-index="1"></div>
+                    <div class="clock-bg-image" data-index="2"></div>
+                    <div class="clock-bg-image" data-index="3"></div>
+                    <div class="clock-bg-image" data-index="4"></div>
+                    <div class="clock-bg-image" data-index="5"></div>
+                    <div class="clock-bg-image" data-index="6"></div>
+                    <div class="clock-bg-image" data-index="7"></div>
+                    <div class="clock-bg-image" data-index="8"></div>
+                    <div class="clock-bg-image" data-index="9"></div>
+                    <div class="clock-bg-overlay"></div>
+                </div>
+                <div class="clock-content">
+                    <div class="clock-time">--:--:--</div>
+                    <div class="clock-date">Cargando fecha...</div>
+                    <div class="clock-task" style="display:none;">
+                        <div class="clock-task-label">📚 Tarea del dia</div>
+                        <div class="clock-task-text"></div>
+                    </div>
                 </div>
             </div>
 
@@ -2698,6 +2975,43 @@
             updateClock(elementId);
             setInterval(function() { updateClock(elementId); }, 1000);
         }
+
+        
+        // ===== BACKGROUND IMAGE ROTATION FOR CLOCKS =====
+        const clockBackgroundImages = [
+            'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+            'https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80',
+            'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80',
+            'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80',
+            'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&q=80',
+            'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80',
+            'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+            'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
+            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
+            'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80'
+        ];
+
+        function initClockBackgrounds(clockId) {
+            const clock = document.getElementById(clockId);
+            if (!clock) return;
+
+            const bgImages = clock.querySelectorAll('.clock-bg-image');
+            bgImages.forEach(function(img, index) {
+                if (clockBackgroundImages[index]) {
+                    img.style.backgroundImage = 'url("' + clockBackgroundImages[index] + '")';
+                }
+            });
+
+            let currentIndex = 0;
+            setInterval(function() {
+                bgImages[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % bgImages.length;
+                bgImages[currentIndex].classList.add('active');
+            }, 25000); // Cambia cada 25 segundos
+        }
+
+        initClockBackgrounds('header-clock');
+        initClockBackgrounds('footer-clock');
 
         initClock('header-clock');
         initClock('footer-clock');
