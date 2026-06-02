@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completa de Microsoft Word - 10 Temas en 5 Dias</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .school-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .school-info img {
+            width: 80px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .school-name { text-align: left; }
+        .school-name h3 { color: #2c5aa0; font-size: 1.3em; }
+        .school-name p { color: #666; font-size: 0.9em; }
+        h1 { color: #2c5aa0; font-size: 2.5em; margin: 20px 0 10px; }
+        .subtitle { color: #666; font-size: 1.2em; }
+        .day-nav {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            padding: 12px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        .day-nav a {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 0.85em;
+        }
+        .day-nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .day-nav a.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .day-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .day-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: white;
+            border: none;
+            display: block;
+        }
+        .day-header .day-theme {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        .day-header .day-objective {
+            margin-top: 15px;
+            font-size: 1em;
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 10px;
+        }
+        .day-date {
+            font-size: 1em;
+            margin-top: 8px;
+            opacity: 0.95;
+            font-weight: bold;
+        }
+        .notebook-area {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-left: 6px solid #ffc107;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .notebook-area::before {
+            content: "📓 COPIAR EN CUADERNO";
+            display: block;
+            background: #ffc107;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        .computer-area {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 6px solid #2196F3;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .computer-area::before {
+            content: "💻 TRABAJAR EN COMPUTADORA";
+            display: block;
+            background: #2196F3;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        .image-area {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 6px solid #4CAF50;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .image-area::before {
+            content: "🖼️ IMÁGENES ILUSTRATIVAS";
+            display: block;
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        .definition-area {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 6px solid #9C27B0;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .definition-area::before {
+            content: "📖 DEFINICIONES IMPORTANTES";
+            display: block;
+            background: #9C27B0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        .exercise-area {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 6px solid #FF9800;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .exercise-area::before {
+            content: "🎯 EJERCICIOS PRÁCTICOS";
+            display: block;
+            background: #FF9800;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        .tip-area {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            border-left: 6px solid #E91E63;
+            border-radius: 0 15px 15px 0;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+        }
+        .tip-area::before {
+            content: "💡 CONSEJOS IMPORTANTES";
+            display: block;
+            background: #E91E63;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        h2 {
+            color: #2c5aa0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h3 { 
+            color: #1a5276; 
+            font-size: 1.4em; 
+            margin: 25px 0 15px; 
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+        }
+        h4 { 
+            color: #2c5aa0; 
+            font-size: 1.15em; 
+            margin: 20px 0 10px; 
+        }
+        .icon { font-size: 1.2em; }
+        .area-content p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        .area-content ol, .area-content ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .area-content li {
+            margin-bottom: 8px;
+        }
+        .illustration-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin: 10px 0;
+            display: block;
+        }
+        .img-caption {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .comparison-table tr:hover { background: #f8f9fa; }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05em;
+        }
+        .checklist li::before {
+            content: "⬜";
+            position: absolute;
+            left: 0;
+            font-size: 1.3em;
+        }
+        .shortcut-key {
+            background: #2c5aa0;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .homework-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .homework-box h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.1em;
+        }
+        .teacher-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .day-section { padding: 20px; }
+            .day-header h2 { font-size: 1.5em; }
+            .notebook-area, .computer-area, .image-area, 
+            .definition-area, .exercise-area, .tip-area {
+                padding: 20px;
+            }
+            .day-nav a { padding: 8px 12px; font-size: 0.8em; }
+        }
+    
+        /* Clock widget styles */
+        .clock-widget {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .clock-time {
+            font-size: 2.2em;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0,229,255,0.5);
+        }
+        .clock-date {
+            font-size: 1.1em;
+            margin-top: 5px;
+            color: #e0e0e0;
+        }
+        .clock-task {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+        .clock-task-label {
+            font-size: 0.85em;
+            color: #ffc107;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+        .clock-task-text {
+            font-size: 1em;
+            color: #fff;
+            font-weight: 500;
+        }
+        .clock-footer {
+            max-width: 500px;
+            margin: 20px auto 0;
+            padding: 12px 20px;
+        }
+        .clock-footer .clock-time {
+            font-size: 1.4em;
+        }
+        .clock-footer .clock-date {
+            font-size: 0.95em;
+        }
+        .clock-footer .clock-task {
+            padding: 8px 12px;
+        }
+        .clock-footer .clock-task-label {
+            font-size: 0.75em;
+        }
+        .clock-footer .clock-task-text {
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .clock-time { font-size: 1.6em; letter-spacing: 1px; }
+            .clock-date { font-size: 0.95em; }
+            .clock-task-text { font-size: 0.9em; }
+            .clock-footer .clock-time { font-size: 1.1em; }
+        }
+
+    
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s;
+            box-shadow: 0 0 10px rgba(102,126,234,0.5);
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102,126,234,0.5);
+        }
+
+        /* ===== DARK MODE TOGGLE ===== */
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3em;
+            z-index: 1001;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== DARK MODE STYLES ===== */
+        body.dark-mode {
+            background: linear-gradient(135deg, #0a0a1a 0%, #0d1b2a 50%, #1b263b 100%);
+        }
+        body.dark-mode header,
+        body.dark-mode .day-section,
+        body.dark-mode .day-nav {
+            background: rgba(30, 30, 50, 0.98);
+            color: #e0e0e0;
+        }
+        body.dark-mode .day-nav a {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        }
+        body.dark-mode .day-nav a.active {
+            background: linear-gradient(135deg, #d53f8c 0%, #c53030 100%);
+        }
+        body.dark-mode h1 { color: #90cdf4; }
+        body.dark-mode h2 { color: #90cdf4; border-bottom-color: #667eea; }
+        body.dark-mode h3 { color: #a0d2eb; }
+        body.dark-mode h4 { color: #90cdf4; }
+        body.dark-mode .subtitle { color: #a0aec0; }
+        body.dark-mode .school-name h3 { color: #90cdf4; }
+        body.dark-mode .school-name p { color: #a0aec0; }
+        body.dark-mode .area-content p { color: #d0d0d0; }
+        body.dark-mode .area-content li { color: #d0d0d0; }
+        body.dark-mode .img-caption { color: #a0aec0; }
+        body.dark-mode .comparison-table { background: #1e1e3f; }
+        body.dark-mode .comparison-table td { border-bottom-color: #333; color: #d0d0d0; }
+        body.dark-mode .comparison-table tr:hover { background: #2a2a4a; }
+        body.dark-mode .notebook-area,
+        body.dark-mode .computer-area,
+        body.dark-mode .image-area,
+        body.dark-mode .definition-area,
+        body.dark-mode .exercise-area,
+        body.dark-mode .tip-area {
+            filter: brightness(0.85);
+        }
+        body.dark-mode .clock-widget {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1b263b 50%, #2d3748 100%);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 50px 14px 20px;
+            border: 2px solid #667eea;
+            border-radius: 30px;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s;
+            background: white;
+            color: #333;
+        }
+        .search-input:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 15px rgba(102,126,234,0.3);
+        }
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            margin-top: 8px;
+        }
+        .search-results.active { display: block; }
+        .search-result-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s;
+        }
+        .search-result-item:hover {
+            background: #f0f4ff;
+        }
+        .search-result-item:last-child { border-bottom: none; }
+        .search-result-title {
+            font-weight: bold;
+            color: #2c5aa0;
+            font-size: 0.95em;
+        }
+        .search-result-preview {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 3px;
+        }
+        body.dark-mode .search-input {
+            background: #1e1e3f;
+            color: #e0e0e0;
+            border-color: #4a5568;
+        }
+        body.dark-mode .search-results {
+            background: #1e1e3f;
+        }
+        body.dark-mode .search-result-item {
+            border-bottom-color: #333;
+        }
+        body.dark-mode .search-result-item:hover {
+            background: #2a2a4a;
+        }
+        body.dark-mode .search-result-title { color: #90cdf4; }
+        body.dark-mode .search-result-preview { color: #a0aec0; }
+
+        /* ===== COLLAPSIBLE SECTIONS ===== */
+        .area-toggle {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-right: 30px;
+        }
+        .area-toggle::after {
+            content: "▼";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            transition: transform 0.3s;
+            color: inherit;
+        }
+        .area-toggle.collapsed::after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        .area-content {
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+            max-height: 20000px;
+            opacity: 1;
+        }
+        .area-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: 0;
+        }
+
+        /* ===== SMOOTH SCROLL & ANIMATIONS ===== */
+        html { scroll-behavior: smooth; }
+
+        .day-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .day-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ACTIVE DAY HIGHLIGHT ===== */
+        .day-nav a.current-day {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px rgba(240,147,251,0.5);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            .day-nav, .back-to-top, .theme-toggle, .search-container, .clock-widget, .scroll-progress {
+                display: none !important;
+            }
+            .day-section { opacity: 1 !important; transform: none !important; }
+            body { background: white !important; }
+            .day-section, header { box-shadow: none !important; background: white !important; }
+        }
+
+    </style>
+    <base target="_blank">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" title="Cambiar tema">🌙</button>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="container">
+        <header>
+            <div class="school-info">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlGRYMf0doBtSJA2ePvivB6ncvsCEvAxhMV9ES8FFNR5FvgD1XWCkbhOl3atJHGDuXAVGXNKIZmnQPUVV1Q5MB2G93qQjAvEFwPluRvy44S1_gqNfWi_gVjg-YN2yN_VXaI_AT8ld-lpapr8a4qMd1tbH63mZbWBJSs1bVIvOIdjhb/s220/logo.jpg" 
+                     alt="Logo Escuela Nacional de Ciencias Comerciales Solola">
+                <div class="school-name">
+                    <h3>Escuela Nacional de Ciencias Comerciales Solola</h3>
+                    <p>Formando lideres para el desarrollo de Guatemala</p>
+                </div>
+            </div>
+            <div style="font-size: 4em;">📝</div>
+            <h1>Guia Completa de Microsoft Word</h1>
+            <p class="subtitle">10 Contenidos Avanzados: Indices, Revision, Documentos Profesionales y Colaboracion</p>
+            <p style="margin-top: 15px; color: #888;">Material organizado por dias para mejor aprendizaje</p>
+            <p style="margin-top: 10px; color: #2c5aa0; font-weight: bold; font-size: 1.1em;">📅 Semana del 01 al 05 de Julio de 2026</p>
+            <div id="header-clock" class="clock-widget">
+                <div class="clock-time">--:--:--</div>
+                <div class="clock-date">Cargando fecha...</div>
+                <div class="clock-task" style="display:none;">
+                    <div class="clock-task-label">📚 Tarea del dia</div>
+                    <div class="clock-task-text"></div>
+                </div>
+            </div>
+
+                    <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="🔍 Buscar en la guia... (ej: indice, bibliografia, formularios)" autocomplete="off">
+                <button class="search-btn" id="searchBtn">🔎</button>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </header>
+
+        <div class="day-nav">
+            <a href="#lunes01">📘 Lunes 18/05</a>
+            <a href="#martes02">📗 Martes 19/05</a>
+            <a href="#miercoles03">📙 Miercoles 20/05</a>
+            <a href="#jueves04">📕 Jueves 21/05</a>
+            <a href="#viernes05">📓 Viernes 22/05</a>
+        </div>
+
+        <section class="day-section" id="lunes01">
+            <div class="day-header">
+                <h2>📘 Dia 1 - Lunes 01/07/2026</h2>
+                <div class="day-theme">Tema 1: Creacion de Indices y Bibliografia | Tema 2: Herramientas de Revision y Correccion Ortografica y Gramatical</div>
+                <div class="day-objective">
+                    <strong>Objetivos del dia:</strong> Aprender a crear indices tematicos y bibliografias automaticas. Dominar las herramientas de revision ortografica y gramatical de Word.
+                </div>
+                <div class="day-date">Semana del 01 al 05 de Julio de 2026</div>
+            </div>
+
+            <h2><span class="icon">📑</span> TEMA 1: Creacion de Indices y Bibliografia</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Que es un indice tematico?</h3>
+                    <p>Un <strong>indice tematico</strong> es una lista alfabetica de terminos, conceptos, nombres propios o temas importantes que aparecen en un documento, acompanados del numero de pagina donde se encuentran. Se ubica al final del documento y facilita la busqueda rapida de informacion.</p>
+                    <p><strong>Que es una bibliografia?</strong></p>
+                    <p>La <strong>bibliografia</strong> es una lista de todas las fuentes (libros, articulos, sitios web, etc.) que se consultaron o citaron en el documento. Word permite crear bibliografias automaticas siguiendo diferentes formatos academicos (APA, MLA, Chicago, ISO).</p>
+                    <p><strong>Diferencia entre indice y tabla de contenido:</strong></p>
+                    <ul>
+                        <li><strong>Tabla de contenido:</strong> Lista los capitulos y secciones en orden de aparicion (usando estilos de titulo)</li>
+                        <li><strong>Indice tematico:</strong> Lista palabras clave en orden alfabetico con numeros de pagina (usando marcadores)</li>
+                        <li><strong>Bibliografia:</strong> Lista las fuentes consultadas con formato academico</li>
+                    </ul>
+                    <p><strong>Formatos de bibliografia mas comunes:</strong></p>
+                    <ul>
+                        <li><strong>APA:</strong> American Psychological Association (ciencias sociales)</li>
+                        <li><strong>MLA:</strong> Modern Language Association (humanidades y literatura)</li>
+                        <li><strong>Chicago:</strong> Chicago Manual of Style (historia, artes)</li>
+                        <li><strong>ISO:</strong> Norma internacional (documentos tecnicos)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 1</h3>
+
+                    <h4>Pasos para crear un indice tematico</h4>
+                    <ol>
+                        <li><strong>Marcar las entradas:</strong>
+                            <ul>
+                                <li>Selecciona la palabra o frase que deseas incluir en el indice</li>
+                                <li>Ve a <strong>REFERENCIAS → Insertar entrada de indice...</strong></li>
+                                <li>En el cuadro de dialogo, verifica que el texto aparezca en "Entrada principal"</li>
+                                <li>Si deseas una subentrada, escribela en "Subentrada"</li>
+                                <li>Selecciona el <strong>formato de numero de pagina</strong> (negrita, cursiva)</li>
+                                <li>Haz clic en <strong>MARCAR</strong> para marcar solo esta ocurrencia</li>
+                                <li>Haz clic en <strong>MARCAR TODO</strong> para marcar todas las ocurrencias de esa palabra</li>
+                            </ul>
+                        </li>
+                        <li><strong>Generar el indice:</strong>
+                            <ul>
+                                <li>Coloca el cursor donde deseas insertar el indice (generalmente al final del documento)</li>
+                                <li>Ve a <strong>REFERENCIAS → Insertar indice...</strong></li>
+                                <li>Configura las opciones:
+                                    <ul>
+                                        <li><strong>Formato:</strong> Clasico, Moderno, Formal, etc.</li>
+                                        <li><strong>Columnas:</strong> Numero de columnas (1, 2 o 3)</li>
+                                        <li><strong>Tipos:</strong> Con sangria, con subentradas</li>
+                                    </ul>
+                                </li>
+                                <li>Haz clic en <strong>ACEPTAR</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Actualizar el indice:</strong>
+                            <ul>
+                                <li>Haz clic derecho sobre el indice generado</li>
+                                <li>Selecciona <strong>Actualizar campo</strong></li>
+                                <li>Elige <strong>Actualizar numeros de pagina solamente</strong> o <strong>Actualizar indice completo</strong></li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Pasos para crear una bibliografia automatica</h4>
+                    <ol>
+                        <li><strong>Insertar citas bibliograficas:</strong>
+                            <ul>
+                                <li>Ve a <strong>REFERENCIAS → Insertar cita → Agregar nueva fuente...</strong></li>
+                                <li>Completa la informacion segun el tipo de fuente:
+                                    <ul>
+                                        <li><strong>Libro:</strong> Autor, Titulo, Ano, Ciudad, Editorial</li>
+                                        <li><strong>Articulo de revista:</strong> Autor, Titulo, Revista, Ano, Volumen, Paginas</li>
+                                        <li><strong>Sitio web:</strong> Autor, Titulo, URL, Fecha de acceso</li>
+                                        <li><strong>Conferencia:</strong> Autor, Titulo, Conferencia, Ano, Lugar</li>
+                                    </ul>
+                                </li>
+                                <li>Haz clic en <strong>ACEPTAR</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Elegir estilo de bibliografia:</strong>
+                            <ul>
+                                <li>Ve a <strong>REFERENCIAS → Estilo</strong></li>
+                                <li>Selecciona el formato: <strong>APA, MLA, Chicago, ISO 690</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Generar la bibliografia:</strong>
+                            <ul>
+                                <li>Coloca el cursor donde deseas la bibliografia</li>
+                                <li>Ve a <strong>REFERENCIAS → Bibliografia</strong></li>
+                                <li>Elige entre: <strong>Bibliografia, Bibliografia citada</strong> o <strong>Insertar bibliografia</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Actualizar la bibliografia:</strong>
+                            <ul>
+                                <li>Haz clic sobre la bibliografia</li>
+                                <li>Presiona <strong>F9</strong> o haz clic derecho → <strong>Actualizar campo</strong></li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Consejos para marcar entradas de indice</h4>
+                    <ul>
+                        <li>Marca solo los <strong>terminos realmente importantes</strong>, no cada palabra</li>
+                        <li>Usa <strong>MARCAR TODO</strong> para terminos que aparecen muchas veces</li>
+                        <li>Usa <strong>subentradas</strong> para organizar terminos relacionados</li>
+                        <li>Revisa el indice generado y ajusta si es necesario</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 1</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Crea un documento con al menos <strong>3 paginas</strong> sobre cualquier tema</li>
+                        <li>Marca al menos <strong>10 palabras clave</strong> como entradas de indice</li>
+                        <li>Genera el <strong>indice tematico</strong> al final del documento con formato de 2 columnas</li>
+                        <li>Agrega al menos <strong>3 fuentes bibliograficas</strong> usando "Insertar cita"</li>
+                        <li>Genera la <strong>bibliografia</strong> en formato <strong>APA</strong></li>
+                        <li>Cambia el estilo a <strong>MLA</strong> y observa las diferencias</li>
+                        <li>Actualiza el indice despues de agregar mas contenido</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 1</h3>
+                    <p><strong>Guarda tus fuentes bibliograficas:</strong> Cuando agregas una fuente en Word, esta se guarda en el documento y puedes reutilizarla en otros documentos. Usa el <strong>Administrador de fuentes</strong> (REFERENCIAS → Administrar fuentes) para importar/exportar fuentes entre documentos.</p>
+                    <p><strong>Indice de calidad:</strong> Un buen indice tematico no debe tener mas de 30-40 entradas en un documento de 20 paginas. Demasiadas entradas saturan el indice y lo hacen inutil. Se selectivo y marca solo conceptos clave.</p>
+                </div>
+            </div>
+
+            <h2><span class="icon">✅</span> TEMA 2: Herramientas de Revision y Correccion Ortografica y Gramatical</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Revision ortografica y gramatical en Word</h3>
+                    <p>Microsoft Word incluye <strong>herramientas de revision</strong> que detectan y corrigen errores ortograficos, gramaticales y de estilo en tiempo real. Estas herramientas ayudan a producir documentos profesionales y sin errores.</p>
+                    <p><strong>Tipos de errores que detecta Word:</strong></p>
+                    <ul>
+                        <li><strong>Ortograficos:</strong> Palabras mal escritas o que no existen en el diccionario (subrayado en rojo ondulado)</li>
+                        <li><strong>Gramaticales:</strong> Errores de concordancia, tiempos verbales, estructura de oraciones (subrayado en azul ondulado)</li>
+                        <li><strong>De estilo:</strong> Repeticion de palabras, frases ambiguas, uso de lenguaje informal (subrayado en morado ondulado)</li>
+                        <li><strong>De puntuacion:</strong> Espacios extra, signos mal colocados, mayusculas incorrectas</li>
+                    </ul>
+                    <p><strong>Idiomas soportados:</strong> Word permite configurar el idioma del documento y del corrector. Puedes tener varios idiomas en un mismo documento y Word revisara cada seccion en su idioma correspondiente.</p>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 2</h3>
+
+                    <h4>Corrector ortografico en tiempo real</h4>
+                    <p>Word marca automaticamente los errores mientras escribes:</p>
+                    <ul>
+                        <li><strong style="color: #d32f2f;">Linea roja ondulada:</strong> Error ortografico</li>
+                        <li><strong style="color: #1976d2;">Linea azul ondulada:</strong> Error gramatical</li>
+                        <li><strong style="color: #7b1fa2;">Linea morada ondulada:</strong> Sugerencia de estilo</li>
+                        <li><strong style="color: #f57c00;">Linea naranja ondulada:</strong> Error de formato</li>
+                    </ul>
+
+                    <h4>Corregir un error con clic derecho</h4>
+                    <ol>
+                        <li>Haz <strong>clic derecho</strong> sobre la palabra subrayada</li>
+                        <li>Aparece un menu con <strong>sugerencias de correccion</strong></li>
+                        <li>Selecciona la opcion correcta para reemplazar automaticamente</li>
+                        <li>O elige:
+                            <ul>
+                                <li><strong>Omitir una vez:</strong> Ignora esta ocurrencia</li>
+                                <li><strong>Omitir todas:</strong> Ignora todas las ocurrencias en el documento</li>
+                                <li><strong>Agregar al diccionario:</strong> Anade la palabra al diccionario personalizado</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Revision ortografica y gramatical completa</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Ortografia y gramatica</strong> (o presiona <strong>F7</strong>)</li>
+                        <li>Se abre el <strong>panel lateral derecho</strong> con el primer error encontrado</li>
+                        <li>Para cada error, Word muestra:
+                            <ul>
+                                <li><strong>Sugerencias:</strong> Lista de palabras correctas</li>
+                                <li><strong>Ignorar:</strong> Pasa al siguiente error</li>
+                                <li><strong>Agregar:</strong> Anade al diccionario personal</li>
+                                <li><strong>Explicacion:</strong> Por que Word considera esto un error</li>
+                            </ul>
+                        </li>
+                        <li>Revisa cada error y selecciona la accion adecuada</li>
+                        <li>Word avanza automaticamente al siguiente error</li>
+                        <li>Cuando termina, muestra el mensaje "La revision ortografica y gramatica esta completa"</li>
+                    </ol>
+
+                    <h4>Configurar opciones de revision</h4>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Opciones → Revision</strong></li>
+                        <li>Configura las siguientes opciones:
+                            <ul>
+                                <li><strong>Comprobar ortografia mientras escribe:</strong> Activa/desactiva el subrayado automatico</li>
+                                <li><strong>Comprobar gramatica con ortografia:</strong> Activa la revision gramatical</li>
+                                <li><strong>Ocultar errores de ortografia:</strong> Desactiva las lineas rojas</li>
+                                <li><strong>Ocultar errores gramaticales:</strong> Desactiva las lineas azules</li>
+                                <li><strong>Revisar mayusculas:</strong> Detecta palabras en mayusculas incorrectas</li>
+                                <li><strong>Revisar palabras con numeros:</strong> Ignora palabras que contienen numeros</li>
+                                <li><strong>Revisar repeticion de palabras:</strong> Detecta palabras escritas dos veces seguidas</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <h4>Configurar el idioma del documento</h4>
+                    <ol>
+                        <li>Selecciona el texto que deseas revisar</li>
+                        <li>Ve a <strong>REVISAR → Idioma → Establecer idioma de revision...</strong></li>
+                        <li>Selecciona el idioma deseado (Espanol, Ingles, etc.)</li>
+                        <li>Marca <strong>"No revisar ortografia ni gramatica"</strong> si deseas omitir esa seccion</li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <h4>Revisar gramatica avanzada (Microsoft Editor)</h4>
+                    <p>En versiones recientes de Word (Microsoft 365), el corrector incluye <strong>Microsoft Editor</strong>, que ofrece:</p>
+                    <ul>
+                        <li><strong>Sugerencias de claridad:</strong> Frases dificiles de entender</li>
+                        <li><strong>Sugerencias de concision:</strong> Formas mas breves de expresar ideas</li>
+                        <li><strong>Sugerencias de formalidad:</strong> Detecta lenguaje informal</li>
+                        <li><strong>Sugerencias de inclusion:</strong> Detecta lenguaje no inclusivo</li>
+                        <li><strong>Puntuacion:</strong> Comillas, parentesis, puntos y comas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 2</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Escribe un parrafo con al menos <strong>5 errores ortograficos intencionales</strong> y observa las lineas rojas</li>
+                        <li>Escribe una oracion con <strong>error gramatical</strong> (ej: "Los nino juegan") y observa la linea azul</li>
+                        <li>Usa <strong>F7</strong> para revisar todo el documento</li>
+                        <li>Corrige todos los errores usando el <strong>panel de revision</strong></li>
+                        <li>Ve a <strong>ARCHIVO → Opciones → Revision</strong> y desactiva "Comprobar ortografia mientras escribe", luego escribe una palabra mal y observa que no aparece linea roja</li>
+                        <li>Vuelve a activar la revision ortografica</li>
+                        <li>Configura el idioma del documento a <strong>Espanol (Guatemala)</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 2</h3>
+                    <p><strong>Word no es perfecto:</strong> El corrector ortografico no detecta errores de contexto (ej: "hay" vs "ahi" vs "ai"). Siempre revisa manualmente despues de usar el corrector automatico. Los nombres propios, terminos tecnicos y palabras en otros idiomas pueden generar falsos positivos.</p>
+                    <p><strong>Diccionario personal:</strong> Agrega palabras correctas pero poco comunes a tu diccionario personal para que Word no las marque como errores. Ve a ARCHIVO → Opciones → Revision → Diccionarios personalizados → Editar lista de palabras.</p>
+                </div>
+            </div>
+
+            <div class="exercise-area">
+                <div class="area-content">
+                    <h3>🎯 EJERCICIOS PRACTICOS - Dia 1</h3>
+                    <ul class="checklist">
+                        <li>Crea un documento de 3 paginas y genera un indice tematico con al menos 8 entradas</li>
+                        <li>Agrega 3 fuentes bibliograficas y genera la bibliografia en formato APA</li>
+                        <li>Escribe un texto con errores ortograficos y gramaticales, luego corrigelo con F7</li>
+                        <li>Configura el corrector para que detecte palabras repetidas</li>
+                        <li>Prueba cambiar el idioma de revision entre Espanol e Ingles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section" id="martes02">
+            <div class="day-header">
+                <h2>📗 Dia 2 - Martes 02/07/2026</h2>
+                <div class="day-theme">Tema 3: Uso del Diccionario y Sinonimos | Tema 4: Creacion de Documentos Profesionales (Cartas, Informes y Curriculum)</div>
+                <div class="day-objective">
+                    <strong>Objetivos del dia:</strong> Dominar el uso del diccionario integrado, el tesauro de sinonimos y antonimos. Aprender a crear documentos profesionales como cartas formales, informes y curriculum vitae.
+                </div>
+                <div class="day-date">Semana del 01 al 05 de Julio de 2026</div>
+            </div>
+
+            <h2><span class="icon">📖</span> TEMA 3: Uso del Diccionario y Sinonimos</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Diccionario y tesauro en Word</h3>
+                    <p>Microsoft Word integra un <strong>diccionario</strong> y un <strong>tesauro</strong> (sinonimos y antonimos) que permiten enriquecer el vocabulario de los documentos y evitar la repeticion de palabras.</p>
+                    <p><strong>Diferencia entre diccionario y tesauro:</strong></p>
+                    <ul>
+                        <li><strong>Diccionario:</strong> Define el significado de las palabras y muestra su ortografia correcta</li>
+                        <li><strong>Tesauro (Sinonimos):</strong> Muestra palabras con significados similares o opuestos</li>
+                    </ul>
+                    <p><strong>Beneficios de usar sinonimos:</strong></p>
+                    <ul>
+                        <li>Evita la repeticion monotona de palabras</li>
+                        <li>Enriquece el vocabulario del documento</li>
+                        <li>Adapta el tono del texto (formal, tecnico, coloquial)</li>
+                        <li>Mejora la calidad de la redaccion</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 3</h3>
+
+                    <h4>Buscar sinonimos con clic derecho</h4>
+                    <ol>
+                        <li>Selecciona la palabra o haz <strong>doble clic</strong> sobre ella</li>
+                        <li>Haz <strong>clic derecho</strong></li>
+                        <li>Selecciona <strong>Sinonimos</strong> en el menu contextual</li>
+                        <li>Aparece una lista de sinonimos sugeridos</li>
+                        <li>Haz clic en el sinonimo deseado para <strong>reemplazar</strong> la palabra original</li>
+                        <li>O selecciona <strong>Ver sinonimos...</strong> para abrir el panel completo</li>
+                    </ol>
+
+                    <h4>Usar el panel de sinonimos (Tesauro)</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Tesauro</strong> (o presiona <strong>Mayus + F7</strong>)</li>
+                        <li>Se abre el <strong>panel lateral derecho</strong></li>
+                        <li>Escribe una palabra en el cuadro de busqueda y presiona <strong>Enter</strong></li>
+                        <li>Word muestra:
+                            <ul>
+                                <li><strong>Sinonimos:</strong> Palabras con significado similar</li>
+                                <li><strong>Antonimos:</strong> Palabras con significado opuesto</li>
+                                <li><strong>Palabras relacionadas:</strong> Terminos del mismo campo semantico</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en la <strong>flecha desplegable</strong> junto a un sinonimo para:
+                            <ul>
+                                <li><strong>Insertar:</strong> Reemplaza la palabra seleccionada</li>
+                                <li><strong>Copiar:</strong> Copia el sinonimo al portapapeles</li>
+                                <li><strong>Buscar:</strong> Busca sinonimos de ese sinonimo</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Usar el diccionario integrado</h4>
+                    <ol>
+                        <li>Selecciona la palabra que deseas definir</li>
+                        <li>Ve a <strong>REVISAR → Definir</strong></li>
+                        <li>Se abre el panel lateral con la definicion de la palabra</li>
+                        <li>El diccionario muestra:
+                            <ul>
+                                <li><strong>Definicion:</strong> Significado de la palabra</li>
+                                <li><strong>Ejemplos:</strong> Oraciones de uso</li>
+                                <li><strong>Pronunciacion:</strong> Guia fonetica</li>
+                                <li><strong>Origen etimologico:</strong> De donde proviene la palabra</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><em>Nota: El diccionario integrado requiere conexion a Internet en algunas versiones de Word.</em></p>
+
+                    <h4>Traducir palabras e idiomas</h4>
+                    <ol>
+                        <li>Selecciona la palabra o frase a traducir</li>
+                        <li>Ve a <strong>REVISAR → Traducir → Traducir documento</strong> (o seleccion)</li>
+                        <li>Se abre el panel de traduccion</li>
+                        <li>Selecciona el <strong>idioma de origen</strong> y el <strong>idioma de destino</strong></li>
+                        <li>Word muestra la traduccion y permite <strong>Insertar</strong> o <strong>Copiar</strong></li>
+                    </ol>
+                    <p><strong>Idiomas disponibles:</strong> Espanol, Ingles, Frances, Aleman, Italiano, Portugues, Chino, Japones, entre otros.</p>
+
+                    <h4>Contar palabras en el documento</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Contar palabras</strong></li>
+                        <li>Se muestra un cuadro con estadisticas:
+                            <ul>
+                                <li><strong>Paginas:</strong> Numero total de paginas</li>
+                                <li><strong>Palabras:</strong> Total de palabras</li>
+                                <li><strong>Caracteres (sin espacios):</strong> Conteo sin espacios</li>
+                                <li><strong>Caracteres (con espacios):</strong> Conteo con espacios</li>
+                                <li><strong>Parrafos:</strong> Total de parrafos</li>
+                                <li><strong>Lineas:</strong> Total de lineas</li>
+                            </ul>
+                        </li>
+                        <li>Marca <strong>"Incluir cuadros de texto, notas al pie y notas al final"</strong> si deseas contar todo</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 3</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Escribe un parrafo usando la palabra <strong>"importante"</strong> 5 veces</li>
+                        <li>Usa el <strong>tesauro</strong> para reemplazar cada ocurrencia por un sinonimo diferente</li>
+                        <li>Busca los <strong>antonimos</strong> de "feliz" y "grande"</li>
+                        <li>Usa el <strong>diccionario</strong> para buscar la definicion de "bibliografia"</li>
+                        <li>Traduce la frase <strong>"Hello, how are you?"</strong> al espanol usando la herramienta de traduccion</li>
+                        <li>Verifica el <strong>conteo de palabras</strong> de tu documento</li>
+                        <li>Busca sinonimos de "documento" y explora las palabras relacionadas</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 3</h3>
+                    <p><strong>No abuses de los sinonimos:</strong> Aunque evitar la repeticion es bueno, usar sinonimos forzados puede hacer el texto confuso o artificial. Elige sinonimos que encajen naturalmente en el contexto. "Grande" y "enorme" no son intercambiables en todos los contextos.</p>
+                    <p><strong>Contexto es clave:</strong> Una misma palabra puede tener multiples significados. El tesauro de Word intenta mostrar sinonimos relevantes al contexto, pero siempre verifica que el significado sea el correcto antes de reemplazar.</p>
+                </div>
+            </div>
+
+            <h2><span class="icon">📄</span> TEMA 4: Creacion de Documentos Profesionales (Cartas, Informes y Curriculum)</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Documentos profesionales en Word</h3>
+                    <p>Word ofrece <strong>plantillas predisenadas</strong> y herramientas para crear documentos profesionales como cartas formales, informes academicos y curriculums vitae. Estos documentos requieren formato especifico segun estandares profesionales.</p>
+                    <p><strong>Tipos de documentos profesionales:</strong></p>
+                    <ul>
+                        <li><strong>Cartas formales:</strong> Solicitudes, quejas, recomendaciones, invitaciones</li>
+                        <li><strong>Informes:</strong> Academicos, tecnicos, de investigacion, de actividades</li>
+                        <li><strong>Curriculum Vitae (CV):</strong> Resumen de experiencia laboral, educacion y habilidades</li>
+                    </ul>
+                    <p><strong>Elementos comunes de documentos profesionales:</strong></p>
+                    <ul>
+                        <li>Encabezado con datos de contacto</li>
+                        <li>Fecha y lugar</li>
+                        <li>Destinatario (para cartas)</li>
+                        <li>Asunto o titulo claro</li>
+                        <li>Cuerpo del documento bien estructurado</li>
+                        <li>Cierre profesional</li>
+                        <li>Firma (para cartas)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 4</h3>
+
+                    <h4>Usar plantillas de Word</h4>
+                    <ol>
+                        <li>Abre Word y selecciona <strong>ARCHIVO → Nuevo</strong></li>
+                        <li>En el cuadro de busqueda escribe el tipo de documento: <strong>"carta", "informe", "curriculum"</strong></li>
+                        <li>Word muestra <strong>plantillas disponibles</strong> en linea y locales</li>
+                        <li>Selecciona la plantilla deseada y haz clic en <strong>CREAR</strong></li>
+                        <li>Reemplaza el texto de ejemplo con tu informacion</li>
+                    </ol>
+
+                    <h4>Estructura de una carta formal</h4>
+                    <ol>
+                        <li><strong>Lugar y fecha:</strong> Ciudad, dia de mes de ano (alineado a la derecha)</li>
+                        <li><strong>Datos del remitente:</strong> Nombre, direccion, telefono, correo (opcional, en encabezado)</li>
+                        <li><strong>Datos del destinatario:</strong> Nombre, cargo, institucion, direccion</li>
+                        <li><strong>Asunto:</strong> Breve descripcion del contenido</li>
+                        <li><strong>Saludo:</strong> "Estimado/a [Nombre]:" o "A quien corresponda:"</li>
+                        <li><strong>Cuerpo de la carta:</strong> 3-4 parrafos maximo, claro y conciso</li>
+                        <li><strong>Despedida:</strong> "Atentamente," "Cordialmente," "Respetuosamente,"</li>
+                        <li><strong>Espacio para firma:</strong> 4-5 lineas en blanco</li>
+                        <li><strong>Nombre completo:</strong> Debajo del espacio de firma</li>
+                        <li><strong>Anexos:</strong> Si aplica, lista de documentos adjuntos</li>
+                    </ol>
+
+                    <h4>Estructura de un informe profesional</h4>
+                    <ol>
+                        <li><strong>Portada:</strong> Titulo, autor, fecha, institucion</li>
+                        <li><strong>Tabla de contenido:</strong> Generada automaticamente con estilos de titulo</li>
+                        <li><strong>Resumen ejecutivo:</strong> Sintesis de 1 pagina con conclusiones principales</li>
+                        <li><strong>Introduccion:</strong> Contexto y objetivos del informe</li>
+                        <li><strong>Desarrollo:</strong> Contenido dividido en secciones con subtitulos</li>
+                        <li><strong>Conclusiones:</strong> Resumen de hallazgos</li>
+                        <li><strong>Recomendaciones:</strong> Propuestas basadas en el analisis</li>
+                        <li><strong>Bibliografia:</strong> Fuentes consultadas</li>
+                        <li><strong>Anexos:</strong> Material complementario (tablas, graficos, imagenes)</li>
+                    </ol>
+
+                    <h4>Estructura de un curriculum vitae (CV)</h4>
+                    <ol>
+                        <li><strong>Datos personales:</strong> Nombre completo, direccion, telefono, correo electronico, foto (opcional)</li>
+                        <li><strong>Perfil profesional:</strong> Resumen de 3-4 lineas sobre quien eres y que buscas</li>
+                        <li><strong>Experiencia laboral:</strong> De la mas reciente a la mas antigua (cargo, empresa, fechas, funciones)</li>
+                        <li><strong>Formacion academica:</strong> Titulos, instituciones, anos</li>
+                        <li><strong>Habilidades:</strong> Tecnicas, idiomas, software, competencias</li>
+                        <li><strong>Certificaciones:</strong> Cursos, diplomados, talleres</li>
+                        <li><strong>Referencias:</strong> Nombres y contactos de personas que pueden validar tu perfil (opcional)</li>
+                    </ol>
+
+                    <h4>Formato recomendado para CV</h4>
+                    <ul>
+                        <li><strong>Fuente:</strong> Arial, Calibri o Times New Roman (10-12 pt)</li>
+                        <li><strong>Margenes:</strong> 2.5 cm en todos los lados</li>
+                        <li><strong>Longitud:</strong> Maximo 2 paginas</li>
+                        <li><strong>Colores:</strong> Maximo 2 colores (negro + un color de acento)</li>
+                        <li><strong>Espaciado:</strong> 1.15 o 1.5 entre lineas</li>
+                        <li><strong>Secciones:</strong> Separadas con lineas o espacios claros</li>
+                    </ul>
+
+                    <h4>Crear un informe con tabla de contenido automatica</h4>
+                    <ol>
+                        <li>Crea un nuevo documento o usa plantilla de informe</li>
+                        <li>Aplica <strong>Titulo 1</strong> a los capitulos principales</li>
+                        <li>Aplica <strong>Titulo 2</strong> a las secciones dentro de cada capitulo</li>
+                        <li>Ve a <strong>REFERENCIAS → Tabla de contenido → Automatica 1</strong></li>
+                        <li>La tabla se genera automaticamente con numeros de pagina</li>
+                        <li>Si agregas mas contenido, actualiza con clic derecho → <strong>Actualizar campo</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 4</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Busca en <strong>ARCHIVO → Nuevo</strong> una plantilla de "carta formal" y personalizala</li>
+                        <li>Crea una <strong>carta de solicitud</strong> siguiendo la estructura aprendida</li>
+                        <li>Crea un <strong>informe de 3 paginas</strong> con portada, tabla de contenido automatica y 2 capitulos</li>
+                        <li>Busca una plantilla de <strong>curriculum vitae</strong> y completala con tus datos</li>
+                        <li>Personaliza el CV cambiando colores y fuentes manteniendo la profesionalidad</li>
+                        <li>Guarda cada documento con nombres descriptivos</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 4</h3>
+                    <p><strong>La simplicidad gana:</strong> En documentos profesionales, menos es mas. Evita colores llamativos, fuentes decorativas o elementos graficos excesivos. Un documento limpio y bien estructurado transmite mas profesionalismo que uno sobrecargado.</p>
+                    <p><strong>Revisa antes de enviar:</strong> Siempre usa F7 para revisar ortografia y gramatica antes de enviar cualquier documento profesional. Un solo error ortografico puede restar credibilidad a tu trabajo.</p>
+                </div>
+            </div>
+
+            <div class="exercise-area">
+                <div class="area-content">
+                    <h3>🎯 EJERCICIOS PRACTICOS - Dia 2</h3>
+                    <ul class="checklist">
+                        <li>Escribe un parrafo y reemplaza 5 palabras repetidas usando el tesauro</li>
+                        <li>Busca la definicion de 3 palabras usando el diccionario integrado</li>
+                        <li>Crea una carta formal de solicitud de empleo con formato profesional</li>
+                        <li>Disena un curriculum vitae de una pagina con tu informacion personal</li>
+                        <li>Crea un informe academico con tabla de contenido automatica</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section" id="miercoles03">
+            <div class="day-header">
+                <h2>📙 Dia 3 - Miercoles 03/07/2026</h2>
+                <div class="day-theme">Tema 5: Elaboracion de Folletos y Boletines | Tema 6: Formularios Interactivos en Word</div>
+                <div class="day-objective">
+                    <strong>Objetivos del dia:</strong> Disenar folletos informativos y boletines usando columnas y plantillas. Crear formularios interactivos con campos de texto, casillas de verificacion y listas desplegables.
+                </div>
+                <div class="day-date">Semana del 01 al 05 de Julio de 2026</div>
+            </div>
+
+            <h2><span class="icon">📰</span> TEMA 5: Elaboracion de Folletos y Boletines</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Folletos y boletines en Word</h3>
+                    <p>Los <strong>folletos</strong> y <strong>boletines</strong> son documentos informativos disenados para comunicar informacion de manera visual y atractiva. Word permite crear estos documentos usando columnas, plantillas y herramientas de diseno.</p>
+                    <p><strong>Diferencia entre folleto y boletin:</strong></p>
+                    <ul>
+                        <li><strong>Folleto (Brochure):</strong> Documento plegado en 2 o 3 partes, usado para promocion o informacion especifica</li>
+                        <li><strong>Boletin (Newsletter):</strong> Publicacion periodica con noticias, articulos y anuncios, generalmente con multiples columnas</li>
+                    </ul>
+                    <p><strong>Usos comunes:</strong></p>
+                    <ul>
+                        <li>Informacion escolar o institucional</li>
+                        <li>Promocion de eventos y actividades</li>
+                        <li>Guias turisticas o informativas</li>
+                        <li>Menus, catalogos de productos</li>
+                        <li>Boletines mensuales de comunidades</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 5</h3>
+
+                    <h4>Crear un folleto triptico (3 columnas plegables)</h4>
+                    <ol>
+                        <li><strong>Configurar la pagina:</strong>
+                            <ul>
+                                <li>Ve a <strong>DISEÑO → Orientacion → Horizontal</strong></li>
+                                <li>Configura margenes: <strong>DISEÑO → Margenes → Personalizar margenes</strong></li>
+                                <li>Establece margenes de 0.5 cm en todos los lados</li>
+                            </ul>
+                        </li>
+                        <li><strong>Dividir en columnas:</strong>
+                            <ul>
+                                <li>Ve a <strong>DISEÑO → Columnas → Mas columnas...</strong></li>
+                                <li>Selecciona <strong>3 columnas</strong></li>
+                                <li>Marca <strong>"Linea separadora"</strong> si deseas lineas entre columnas</li>
+                                <li>En "Ancho y espaciado" ajusta el ancho de cada columna (aprox. 8 cm cada una)</li>
+                                <li>Haz clic en <strong>ACEPTAR</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Disenar cada panel:</strong>
+                            <ul>
+                                <li><strong>Panel frontal (derecho):</strong> Titulo principal, imagen atractiva, logo</li>
+                                <li><strong>Panel trasero (izquierdo):</strong> Informacion de contacto, mapa, redes sociales</li>
+                                <li><strong>Panel interior:</strong> Contenido detallado, imagenes, informacion principal</li>
+                            </ul>
+                        </li>
+                        <li><strong>Insertar imagenes y formas:</strong>
+                            <ul>
+                                <li>Usa <strong>INSERTAR → Imagenes</strong> para anadir fotos</li>
+                                <li>Usa <strong>INSERTAR → Formas</strong> para crear cuadros de color</li>
+                                <li>Ajusta el <strong>texto alrededor</strong> de las imagenes (Cuadrado o Estrecho)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Aplicar estilos de texto:</strong>
+                            <ul>
+                                <li>Titulos: Fuente grande, negrita, color de acento</li>
+                                <li>Subtitulos: Fuente mediana, color secundario</li>
+                                <li>Cuerpo: Fuente legible, tamano 10-11 pt</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Crear un boletin con columnas</h4>
+                    <ol>
+                        <li>Configura el documento en <strong>orientacion vertical</strong></li>
+                        <li>Ve a <strong>DISEÑO → Columnas → Dos</strong> (o tres, segun preferencia)</li>
+                        <li>Inserta un <strong>encabezado</strong> con el nombre del boletin y la fecha:
+                            <ul>
+                                <li><strong>INSERTAR → Encabezado → Encabezado en blanco</strong></li>
+                                <li>Escribe el titulo del boletin con fuente grande y color llamativo</li>
+                                <li>Agrega la fecha y el numero de edicion</li>
+                            </ul>
+                        </li>
+                        <li>Inserta <strong>articulos</strong> en cada columna:
+                            <ul>
+                                <li>Titulo del articulo en negrita</li>
+                                <li>Cuerpo del articulo justificado</li>
+                                <li>Imagen relacionada con el texto</li>
+                            </ul>
+                        </li>
+                        <li>Usa <strong>saltos de columna</strong> para controlar el flujo del texto:
+                            <ul>
+                                <li>Coloca el cursor donde deseas el salto</li>
+                                <li><strong>DISEÑO → Saltos → Columna</strong></li>
+                            </ul>
+                        </li>
+                        <li>Agrega un <strong>pie de pagina</strong> con informacion de contacto o pagina web</li>
+                    </ol>
+
+                    <h4>Usar plantillas de folletos y boletines</h4>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Nuevo</strong></li>
+                        <li>En el cuadro de busqueda escribe <strong>"folleto"</strong> o <strong>"boletin"</strong></li>
+                        <li>Word muestra <strong>plantillas predisenadas</strong> disponibles</li>
+                        <li>Selecciona la plantilla que mas te guste</li>
+                        <li>Haz clic en <strong>CREAR</strong></li>
+                        <li>Reemplaza el texto de ejemplo con tu contenido</li>
+                        <li>Personaliza colores, fuentes e imagenes segun tus necesidades</li>
+                    </ol>
+
+                    <h4>Consejos de diseno para folletos y boletines</h4>
+                    <ul>
+                        <li><strong>Jerarquia visual:</strong> Los titulos deben ser mas grandes que el cuerpo del texto</li>
+                        <li><strong>Contraste:</strong> Usa colores que contrasten bien para mejor legibilidad</li>
+                        <li><strong>Espacio en blanco:</strong> No llenes todo el espacio; el blanco mejora la lectura</li>
+                        <li><strong>Imagenes de calidad:</strong> Usa imagenes de alta resolucion que no se vean pixeladas</li>
+                        <li><strong>Consistencia:</strong> Manten la misma fuente y paleta de colores en todo el documento</li>
+                        <li><strong>Llamadas a la accion:</strong> Incluye informacion clara sobre que hacer despues de leer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 5</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Crea un <strong>folleto triptico</strong> sobre tu escuela usando 3 columnas en orientacion horizontal</li>
+                        <li>Disena un <strong>boletin escolar</strong> de 2 paginas con 2 columnas, encabezado y pie de pagina</li>
+                        <li>Busca una <strong>plantilla de folleto</strong> en ARCHIVO → Nuevo y personalizala</li>
+                        <li>Inserta al menos <strong>3 imagenes</strong> con texto alrededor en modo "Cuadrado"</li>
+                        <li>Usa <strong>formas de color</strong> para crear secciones destacadas en el folleto</li>
+                        <li>Aplica <strong>estilos de texto</strong> consistentes en todo el documento</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 5</h3>
+                    <p><strong>Imprime una prueba:</strong> Antes de imprimir muchas copias, imprime una sola pagina de prueba para verificar que los colores, margenes y disposicion se vean correctos. Lo que ves en pantalla no siempre coincide con la impresion.</p>
+                    <p><strong>Resolucion de imagenes:</strong> Para impresion de calidad, las imagenes deben tener al menos 300 DPI (puntos por pulgada). Imagenes de baja resolucion se veran borrosas al imprimir.</p>
+                </div>
+            </div>
+
+            <h2><span class="icon">📋</span> TEMA 6: Formularios Interactivos en Word</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Formularios interactivos en Word</h3>
+                    <p>Los <strong>formularios interactivos</strong> son documentos de Word que contienen campos editables donde los usuarios pueden ingresar informacion sin modificar el resto del documento. Son ideales para encuestas, solicitudes, registros y cualquier documento que requiera datos de multiples personas.</p>
+                    <p><strong>Tipos de controles de formulario:</strong></p>
+                    <ul>
+                        <li><strong>Campo de texto enriquecido:</strong> Permite escribir texto con formato (negrita, color, tamano)</li>
+                        <li><strong>Campo de texto sin formato:</strong> Solo texto plano, sin formato</li>
+                        <li><strong>Imagen:</strong> Permite insertar una imagen en el formulario</li>
+                        <li><strong>Casilla de verificacion:</strong> Cuadrito que se marca o desmarca (si/no)</li>
+                        <li><strong>Cuadro combinado:</strong> Lista desplegable con opciones predefinidas</li>
+                        <li><strong>Lista desplegable:</strong> Similar al cuadro combinado, pero sin opcion de escribir</li>
+                        <li><strong>Selector de fecha:</strong> Calendario para elegir una fecha</li>
+                        <li><strong>Grupo de opciones:</strong> Botones de opcion donde solo se puede elegir una</li>
+                    </ul>
+                    <p><strong>Usos comunes de formularios:</strong></p>
+                    <ul>
+                        <li>Inscripciones escolares y eventos</li>
+                        <li>Encuestas de satisfaccion</li>
+                        <li>Solicitudes de empleo</li>
+                        <li>Formularios de registro</li>
+                        <li>Evaluaciones y cuestionarios</li>
+                        <li>Ordenes de compra</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 6</h3>
+
+                    <h4>Activar la pestana Programador (Developer)</h4>
+                    <p>Los controles de formulario estan en la pestana <strong>Programador</strong>, que por defecto esta oculta:</p>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Opciones → Personalizar cinta de opciones</strong></li>
+                        <li>En el panel derecho, marca la casilla <strong>"Programador"</strong></li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>La pestana Programador aparecera en la cinta de opciones</li>
+                    </ol>
+
+                    <h4>Insertar controles de formulario (controles heredados)</h4>
+                    <ol>
+                        <li>Ve a la pestana <strong>PROGRAMADOR</strong></li>
+                        <li>En el grupo <strong>Controles</strong>, haz clic en el icono de <strong>"Controles heredados"</strong> (pequeno icono con herramientas)</li>
+                        <li>Selecciona el control deseado:
+                            <ul>
+                                <li><strong>Campo de formulario de texto:</strong> Para escribir texto</li>
+                                <li><strong>Campo de formulario de casilla de verificacion:</strong> Para marcar opciones</li>
+                                <li><strong>Campo de formulario de cuadro desplegable:</strong> Para listas de opciones</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en el documento donde deseas insertar el control</li>
+                    </ol>
+
+                    <h4>Configurar propiedades de los controles</h4>
+                    <p><strong>Campo de texto:</strong></p>
+                    <ol>
+                        <li>Haz <strong>doble clic</strong> sobre el campo de texto insertado</li>
+                        <li>Configura:
+                            <ul>
+                                <li><strong>Tipo:</strong> Texto normal, Numero, Fecha, Hora, Calculo</li>
+                                <li><strong>Texto predeterminado:</strong> Texto que aparece antes de escribir</li>
+                                <li><strong>Longitud maxima:</strong> Numero maximo de caracteres permitidos</li>
+                                <li><strong>Formato:</strong> Mayusculas, minusculas, primera letra mayuscula</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <p><strong>Casilla de verificacion:</strong></p>
+                    <ol>
+                        <li>Haz <strong>doble clic</strong> sobre la casilla</li>
+                        <li>Configura:
+                            <ul>
+                                <li><strong>Tamano:</strong> Automatico o tamano exacto</li>
+                                <li><strong>Valor predeterminado:</strong> Marcado o desmarcado</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <p><strong>Cuadro desplegable:</strong></p>
+                    <ol>
+                        <li>Haz <strong>doble clic</strong> sobre el cuadro desplegable</li>
+                        <li>En "Elementos de la lista desplegable", haz clic en <strong>AGREGAR</strong></li>
+                        <li>Escribe cada opcion y presiona <strong>Enter</strong></li>
+                        <li>Usa <strong>MOVER</strong> para ordenar las opciones</li>
+                        <li>Selecciona el <strong>elemento predeterminado</strong></li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <h4>Proteger el formulario para que solo se editen los campos</h4>
+                    <ol>
+                        <li>Ve a <strong>PROGRAMADOR → Proteger documento → Restringir edicion</strong></li>
+                        <li>En el panel lateral:
+                            <ul>
+                                <li>Marca <strong>"Permitir solo este tipo de edicion en el documento"</strong></li>
+                                <li>Selecciona <strong>"Rellenar formularios"</strong> en el desplegable</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>"Si, aplicar proteccion"</strong></li>
+                        <li>Establece una <strong>contrasena</strong> opcional para mayor seguridad</li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Ahora los usuarios solo pueden llenar los campos del formulario, no modificar el texto fijo</li>
+                    </ol>
+
+                    <h4>Desproteger el formulario para editar</h4>
+                    <ol>
+                        <li>Ve a <strong>PROGRAMADOR → Proteger documento → Restringir edicion</strong></li>
+                        <li>Haz clic en <strong>"Detener proteccion"</strong> en la parte inferior del panel</li>
+                        <li>Si hay contrasena, ingresala y haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <h4>Usar controles de contenido (alternativa moderna)</h4>
+                    <ol>
+                        <li>Ve a <strong>PROGRAMADOR → Controles</strong></li>
+                        <li>Usa los controles de la seccion <strong>"Controles de contenido"</strong>:
+                            <ul>
+                                <li><strong>Texto enriquecido:</strong> Campo de texto con formato</li>
+                                <li><strong>Texto sin formato:</strong> Campo de texto plano</li>
+                                <li><strong>Imagen:</strong> Para insertar fotos</li>
+                                <li><strong>Casilla de verificacion:</strong> Para marcar opciones</li>
+                                <li><strong>Cuadro combinado:</strong> Lista con opcion de escribir</li>
+                                <li><strong>Lista desplegable:</strong> Lista con opciones fijas</li>
+                                <li><strong>Selector de fecha:</strong> Calendario integrado</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en el control deseado y luego en el documento</li>
+                        <li>Haz clic en <strong>Propiedades</strong> para configurar cada control</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 6</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li><strong>Activa la pestana Programador</strong> siguiendo los pasos indicados</li>
+                        <li>Crea un <strong>formulario de inscripcion escolar</strong> con:
+                            <ul>
+                                <li>Campos de texto para: nombre, apellido, direccion, telefono</li>
+                                <li>Casillas de verificacion para: "Acepto terminos", "Recibir boletin"</li>
+                                <li>Cuadro desplegable para: grado escolar (1ro, 2do, 3ro, etc.)</li>
+                            </ul>
+                        </li>
+                        <li>Configura las <strong>propiedades</strong> de cada control (texto predeterminado, longitud maxima)</li>
+                        <li><strong>Protege el formulario</strong> con "Rellenar formularios"</li>
+                        <li>Prueba llenar el formulario como si fueras un usuario</li>
+                        <li><strong>Desprotege</strong> el formulario y haz ajustes si es necesario</li>
+                        <li>Crea un <strong>formulario de encuesta</strong> con 5 preguntas usando diferentes tipos de controles</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 6</h3>
+                    <p><strong>Instrucciones claras:</strong> Incluye instrucciones breves junto a cada campo del formulario (ej: "Escriba su nombre completo", "Seleccione una opcion"). Los usuarios entenderan mejor que informacion se espera.</p>
+                    <p><strong>Guarda una copia maestra:</strong> Siempre guarda una copia del formulario SIN proteger (como plantilla) para poder hacer modificaciones futuras. La version protegida es la que distribuyes a los usuarios.</p>
+                </div>
+            </div>
+
+            <div class="exercise-area">
+                <div class="area-content">
+                    <h3>🎯 EJERCICIOS PRACTICOS - Dia 3</h3>
+                    <ul class="checklist">
+                        <li>Disena un folleto triptico promocional para un evento escolar</li>
+                        <li>Crea un boletin informativo de 2 paginas con 2 columnas y al menos 3 articulos</li>
+                        <li>Crea un formulario de solicitud de empleo con campos de texto, casillas y lista desplegable</li>
+                        <li>Protege el formulario y prueba llenarlo</li>
+                        <li>Crea un formulario de encuesta con al menos 5 preguntas usando diferentes controles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section" id="jueves04">
+            <div class="day-header">
+                <h2>📕 Dia 4 - Jueves 04/07/2026</h2>
+                <div class="day-theme">Tema 7: Trabajo Colaborativo en Word | Tema 8: Guardar y Compartir Documentos en OneDrive, Uso de Word en la Nube</div>
+                <div class="day-objective">
+                    <strong>Objetivos del dia:</strong> Aprender a compartir documentos, trabajar simultaneamente con otros usuarios, usar Word Online y gestionar documentos en la nube con OneDrive.
+                </div>
+                <div class="day-date">Semana del 01 al 05 de Julio de 2026</div>
+            </div>
+
+            <h2><span class="icon">🤝</span> TEMA 7: Trabajo Colaborativo en Word</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Trabajo colaborativo en Word</h3>
+                    <p>El <strong>trabajo colaborativo</strong> permite que multiples personas editen un mismo documento de Word simultaneamente, sin necesidad de enviar versiones por correo electronico. Word guarda automaticamente los cambios y muestra quien esta editando que parte del documento en tiempo real.</p>
+                    <p><strong>Ventajas del trabajo colaborativo:</strong></p>
+                    <ul>
+                        <li>Varias personas pueden editar el documento al mismo tiempo</li>
+                        <li>No se pierden versiones ni se confunden archivos</li>
+                        <li>Se ven los cambios en tiempo real</li>
+                        <li>Se pueden dejar comentarios y sugerencias</li>
+                        <li>Se mantiene un historial de cambios</li>
+                        <li>Se puede revertir a versiones anteriores</li>
+                    </ul>
+                    <p><strong>Requisitos para trabajo colaborativo:</strong></p>
+                    <ul>
+                        <li>Cuenta de <strong>Microsoft 365</strong> (anteriormente Office 365)</li>
+                        <li>Documento guardado en <strong>OneDrive</strong> o <strong>SharePoint</strong></li>
+                        <li>Conexion a <strong>Internet</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 7</h3>
+
+                    <h4>Compartir un documento para trabajo colaborativo</h4>
+                    <ol>
+                        <li><strong>Guarda el documento en OneDrive:</strong>
+                            <ul>
+                                <li>Ve a <strong>ARCHIVO → Guardar como → OneDrive</strong></li>
+                                <li>Selecciona la carpeta donde deseas guardar</li>
+                                <li>Escribe el nombre del archivo y haz clic en <strong>Guardar</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Compartir el documento:</strong>
+                            <ul>
+                                <li>Haz clic en el boton <strong>"Compartir"</strong> en la esquina superior derecha</li>
+                                <li>O ve a <strong>ARCHIVO → Compartir → Compartir con personas</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Configurar permisos:</strong>
+                            <ul>
+                                <li><strong>Puede editar:</strong> Los destinatarios pueden modificar el documento</li>
+                                <li><strong>Puede ver:</strong> Los destinatarios solo pueden leer, no modificar</li>
+                            </ul>
+                        </li>
+                        <li><strong>Enviar la invitacion:</strong>
+                            <ul>
+                                <li>Escribe las <strong>direcciones de correo</strong> de los colaboradores</li>
+                                <li>Agrega un <strong>mensaje</strong> opcional</li>
+                                <li>Haz clic en <strong>ENVIAR</strong></li>
+                                <li>O copia el <strong>enlace</strong> para compartirlo por otros medios</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Trabajar simultaneamente en un documento</h4>
+                    <ol>
+                        <li>Cuando otra persona abre el documento compartido, aparece su <strong>nombre y cursor de color</strong> en el documento</li>
+                        <li>Cada persona edita su parte del documento <strong>en tiempo real</strong></li>
+                        <li>Los cambios se <strong>guardan automaticamente</strong> cada pocos segundos</li>
+                        <li>Puedes ver <strong>quien esta editando</strong> en la parte superior derecha (iconos de personas)</li>
+                        <li>Haz clic en un icono de persona para <strong>saltar a su ubicacion</strong> en el documento</li>
+                        <li>Word resalta las secciones que estan siendo editadas con <strong>colores diferentes</strong></li>
+                    </ol>
+
+                    <h4>Usar comentarios para colaboracion</h4>
+                    <ol>
+                        <li><strong>Agregar un comentario:</strong>
+                            <ul>
+                                <li>Selecciona el texto sobre el que deseas comentar</li>
+                                <li>Ve a <strong>INSERTAR → Comentario</strong> (o presiona <strong>Ctrl + Alt + M</strong>)</li>
+                                <li>Escribe tu comentario en el panel lateral</li>
+                                <li>Haz clic fuera del comentario para guardarlo</li>
+                            </ul>
+                        </li>
+                        <li><strong>Responder a un comentario:</strong>
+                            <ul>
+                                <li>Haz clic en el comentario existente</li>
+                                <li>Escribe tu respuesta y presiona <strong>Enter</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Resolver un comentario:</strong>
+                            <ul>
+                                <li>Haz clic en el boton <strong>"Resolver"</strong> junto al comentario</li>
+                                <li>El comentario se oculta pero permanece en el historial</li>
+                            </ul>
+                        </li>
+                        <li><strong>Eliminar un comentario:</strong>
+                            <ul>
+                                <li>Haz clic derecho sobre el comentario</li>
+                                <li>Selecciona <strong>Eliminar comentario</strong></li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Usar el modo "Revisar" (Track Changes)</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Control de cambios</strong></li>
+                        <li>Haz clic en <strong>"Control de cambios"</strong> para activarlo</li>
+                        <li>Ahora todos los cambios que hagas se marcaran:
+                            <ul>
+                                <li><strong>Texto agregado:</strong> Subrayado en color</li>
+                                <li><strong>Texto eliminado:</strong> Tachado en color</li>
+                                <li><strong>Cada persona:</strong> Tiene un color diferente</li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>aceptar un cambio:</strong>
+                            <ul>
+                                <li>Haz clic en el cambio</li>
+                                <li>Ve a <strong>REVISAR → Aceptar</strong></li>
+                                <li>O haz clic en la marca de verificacion junto al cambio</li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>rechazar un cambio:</strong>
+                            <ul>
+                                <li>Haz clic en el cambio</li>
+                                <li>Ve a <strong>REVISAR → Rechazar</strong></li>
+                                <li>O haz clic en la X junto al cambio</li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>aceptar o rechazar todos los cambios:</strong>
+                            <ul>
+                                <li>Ve a <strong>REVISAR → Aceptar → Aceptar todos los cambios</strong></li>
+                                <li>O <strong>Rechazar → Rechazar todos los cambios</strong></li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>desactivar</strong> el control de cambios, haz clic nuevamente en "Control de cambios"</li>
+                    </ol>
+
+                    <h4>Ver el historial de versiones</h4>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Informacion → Versiones</strong></li>
+                        <li>Word muestra una lista de <strong>versiones anteriores</strong> del documento</li>
+                        <li>Haz clic en una version para <strong>verla</strong></li>
+                        <li>Haz clic en <strong>"Restaurar"</strong> para volver a esa version</li>
+                        <li>O haz clic en <strong>"Comparar"</strong> para ver las diferencias entre versiones</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 7</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li><strong>Guarda un documento en OneDrive</strong> y compartelo con un companero con permiso de edicion</li>
+                        <li><strong>Activa el Control de cambios</strong> y haz 5 modificaciones en el documento</li>
+                        <li><strong>Agrega 3 comentarios</strong> en diferentes partes del texto</li>
+                        <li><strong>Acepta 2 cambios</strong> y <strong>rechaza 1 cambio</strong></li>
+                        <li><strong>Resuelve un comentario</strong> y elimina otro</li>
+                        <li><strong>Revisa el historial de versiones</strong> del documento</li>
+                        <li><strong>Desactiva el Control de cambios</strong> y guarda el documento final</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 7</h3>
+                    <p><strong>Comunicacion es clave:</strong> Aunque Word permite editar simultaneamente, es recomendable que cada persona trabaje en secciones diferentes para evitar conflictos. Usa comentarios para coordinar quien hace que.</p>
+                    <p><strong>Guarda versiones importantes:</strong> Aunque Word guarda automaticamente, es buena practica hacer una copia con nombre descriptivo antes de realizar cambios importantes (ej: "Informe_v1", "Informe_v2_final").</p>
+                </div>
+            </div>
+
+            <h2><span class="icon">☁️</span> TEMA 8: Guardar y Compartir Documentos en OneDrive, Uso de Word en la Nube</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 OneDrive y Word en la nube</h3>
+                    <p><strong>OneDrive</strong> es el servicio de almacenamiento en la nube de Microsoft. Permite guardar documentos en servidores de Internet, acceder a ellos desde cualquier dispositivo y compartirlos facilmente. <strong>Word Online</strong> es la version de Word que funciona directamente en el navegador web, sin necesidad de instalar el programa.</p>
+                    <p><strong>Ventajas de usar la nube:</strong></p>
+                    <ul>
+                        <li>Acceso desde cualquier dispositivo con Internet</li>
+                        <li>Los documentos estan siempre respaldados</li>
+                        <li>No ocupan espacio en tu computadora</li>
+                        <li>Compartir es mas facil y rapido</li>
+                        <li>Colaboracion en tiempo real</li>
+                        <li>Historial de versiones automatico</li>
+                    </ul>
+                    <p><strong>Diferencia entre Word de escritorio y Word Online:</strong></p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Caracteristica</th>
+                                <th>Word de escritorio</th>
+                                <th>Word Online</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Instalacion</strong></td>
+                                <td>Requiere instalar el programa</td>
+                                <td>Funciona en el navegador web</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Funciones avanzadas</strong></td>
+                                <td>Todas las funciones disponibles</td>
+                                <td>Funciones basicas y medias</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Trabajo sin Internet</strong></td>
+                                <td>Si, funciona offline</td>
+                                <td>No, requiere conexion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Almacenamiento</strong></td>
+                                <td>En la computadora o OneDrive</td>
+                                <td>Automaticamente en OneDrive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Colaboracion</strong></td>
+                                <td>Si, con documentos en OneDrive</td>
+                                <td>Si, nativamente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 8</h3>
+
+                    <h4>Crear una cuenta de Microsoft y acceder a OneDrive</h4>
+                    <ol>
+                        <li>Ve a <strong>www.onedrive.com</strong> o <strong>www.outlook.com</strong></li>
+                        <li>Haz clic en <strong>"Crear cuenta"</strong> o <strong>"Registrarse"</strong></li>
+                        <li>Completa tus datos: nombre, fecha de nacimiento, pais</li>
+                        <li>Crea una <strong>direccion de correo</strong> (@outlook.com o @hotmail.com)</li>
+                        <li>Establece una <strong>contrasena segura</strong></li>
+                        <li>Verifica tu cuenta con el codigo enviado a tu correo o telefono</li>
+                        <li>Al iniciar sesion, tendras <strong>5 GB de almacenamiento gratuito</strong> en OneDrive</li>
+                    </ol>
+
+                    <h4>Guardar un documento en OneDrive desde Word</h4>
+                    <ol>
+                        <li>Abre Word y crea o abre un documento</li>
+                        <li>Ve a <strong>ARCHIVO → Guardar como → OneDrive</strong></li>
+                        <li>Selecciona la carpeta donde deseas guardar</li>
+                        <li>Escribe el <strong>nombre del archivo</strong></li>
+                        <li>Haz clic en <strong>Guardar</strong></li>
+                        <li>El documento se guarda en la nube y aparece una marca de verificacion verde</li>
+                    </ol>
+
+                    <h4>Abrir un documento desde OneDrive</h4>
+                    <ol>
+                        <li>Abre Word</li>
+                        <li>En la pantalla de inicio, selecciona <strong>OneDrive</strong> en el panel izquierdo</li>
+                        <li>Navega por las carpetas y haz clic en el documento deseado</li>
+                        <li>O ve a <strong>ARCHIVO → Abrir → OneDrive</strong></li>
+                    </ol>
+
+                    <h4>Usar Word Online desde el navegador</h4>
+                    <ol>
+                        <li>Abre tu navegador web (Chrome, Edge, Firefox)</li>
+                        <li>Ve a <strong>www.office.com</strong> e inicia sesion con tu cuenta Microsoft</li>
+                        <li>Haz clic en el icono de <strong>Word</strong></li>
+                        <li>Selecciona <strong>"Documento en blanco"</strong> o abre uno existente</li>
+                        <li>La interfaz es similar a Word de escritorio pero con menos opciones avanzadas</li>
+                        <li>Los documentos se guardan <strong>automaticamente</strong> en OneDrive</li>
+                    </ol>
+
+                    <h4>Sincronizar OneDrive con tu computadora</h4>
+                    <ol>
+                        <li>Descarga e instala <strong>OneDrive para escritorio</strong> desde www.onedrive.com</li>
+                        <li>Inicia sesion con tu cuenta Microsoft</li>
+                        <li>Selecciona las <strong>carpetas que deseas sincronizar</strong></li>
+                        <li>OneDrive crea una carpeta en tu computadora (generalmente en C:\Users\TuNombre\OneDrive)</li>
+                        <li>Cualquier archivo que guardes en esa carpeta se sincroniza automaticamente con la nube</li>
+                        <li>Puedes trabajar <strong>offline</strong> y los cambios se sincronizaran cuando tengas Internet</li>
+                    </ol>
+
+                    <h4>Compartir un documento desde OneDrive</h4>
+                    <ol>
+                        <li>Ve a <strong>www.onedrive.com</strong> e inicia sesion</li>
+                        <li>Localiza el archivo que deseas compartir</li>
+                        <li>Haz <strong>clic derecho</strong> sobre el archivo</li>
+                        <li>Selecciona <strong>"Compartir"</strong></li>
+                        <li>Configura las opciones:
+                            <ul>
+                                <li><strong>Cualquiera con el enlace:</strong> No requiere cuenta Microsoft</li>
+                                <li><strong>Personas de la organizacion:</strong> Solo usuarios de tu escuela/empresa</li>
+                                <li><strong>Personas especificas:</strong> Solo las personas que indiques</li>
+                            </ul>
+                        </li>
+                        <li>Selecciona los <strong>permisos</strong> (editar o ver)</li>
+                        <li>Copia el <strong>enlace</strong> o envia por correo</li>
+                    </ol>
+
+                    <h4>Gestionar el almacenamiento en OneDrive</h4>
+                    <ol>
+                        <li>Ve a <strong>www.onedrive.com</strong> e inicia sesion</li>
+                        <li>Haz clic en el <strong>icono de engranaje</strong> (Configuracion)</li>
+                        <li>Selecciona <strong>"Opciones" → "Administrar almacenamiento"</strong></li>
+                        <li>Aqui puedes:
+                            <ul>
+                                <li>Ver cuanto espacio has usado</li>
+                                <li>Eliminar archivos grandes para liberar espacio</li>
+                                <li>Comprar mas almacenamiento si es necesario</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 8</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li><strong>Crea una cuenta de Microsoft</strong> (si no tienes una) o inicia sesion en tu cuenta existente</li>
+                        <li><strong>Guarda un documento en OneDrive</strong> desde Word de escritorio</li>
+                        <li><strong>Abre Word Online</strong> desde www.office.com y crea un nuevo documento</li>
+                        <li><strong>Comparte el documento</strong> con un companero usando un enlace</li>
+                        <li><strong>Descarga la aplicacion de OneDrive</strong> para escritorio y sincroniza una carpeta</li>
+                        <li><strong>Crea una carpeta en tu escritorio</strong> dentro de la carpeta de OneDrive y verifica que aparezca en la nube</li>
+                        <li><strong>Verifica tu espacio de almacenamiento</strong> usado en OneDrive</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 8</h3>
+                    <p><strong>Copia de seguridad local:</strong> Aunque OneDrive es confiable, siempre manten una copia de tus documentos mas importantes en una USB o disco duro externo. La nube es segura, pero tener un respaldo fisico nunca esta de mas.</p>
+                    <p><strong>Conexion estable:</strong> Para trabajo colaborativo en tiempo real, asegurate de tener una conexion a Internet estable. Si la conexion se interrumpe, Word guardara los cambios localmente y los sincronizara cuando recuperes la conexion.</p>
+                </div>
+            </div>
+
+            <div class="exercise-area">
+                <div class="area-content">
+                    <h3>🎯 EJERCICIOS PRACTICOS - Dia 4</h3>
+                    <ul class="checklist">
+                        <li>Crea un documento, guardalo en OneDrive y compartelo con permiso de edicion</li>
+                        <li>Activa el Control de cambios y realiza 5 modificaciones</li>
+                        <li>Agrega 3 comentarios y responde a 1 de ellos</li>
+                        <li>Abre Word Online y crea un documento desde el navegador</li>
+                        <li>Descarga OneDrive para escritorio y sincroniza una carpeta de documentos</li>
+                        <li>Comparte un documento mediante un enlace de "cualquiera con el enlace"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="day-section" id="viernes05">
+            <div class="day-header">
+                <h2>📓 Dia 5 - Viernes 05/07/2026</h2>
+                <div class="day-theme">Tema 9: Control de Versiones y Comentarios en Grupo | Tema 10: Aplicacion de Estilos de Texto</div>
+                <div class="day-objective">
+                    <strong>Objetivos del dia:</strong> Gestionar versiones de documentos, usar comentarios en grupo de forma efectiva y dominar la aplicacion de estilos de texto para documentos profesionales.
+                </div>
+                <div class="day-date">Semana del 01 al 05 de Julio de 2026</div>
+            </div>
+
+            <h2><span class="icon">🔄</span> TEMA 9: Control de Versiones y Comentarios en Grupo</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Control de versiones en Word</h3>
+                    <p>El <strong>control de versiones</strong> permite rastrear todos los cambios realizados en un documento a lo largo del tiempo, identificar quien hizo cada modificacion y recuperar versiones anteriores si es necesario. Es fundamental cuando multiples personas trabajan en un mismo documento.</p>
+                    <p><strong>Que es el control de versiones:</strong></p>
+                    <ul>
+                        <li>Registro automatico de todos los cambios realizados</li>
+                        <li>Identificacion del autor de cada modificacion</li>
+                        <li>Fecha y hora exacta de cada cambio</li>
+                        <li>Posibilidad de comparar versiones</li>
+                        <li>Restauracion de versiones anteriores</li>
+                    </ul>
+                    <p><strong>Comentarios en grupo:</strong></p>
+                    <ul>
+                        <li>Permiten discutir cambios sin modificar el texto</li>
+                        <li>Cada persona puede responder a comentarios de otros</li>
+                        <li>Se pueden resolver o eliminar comentarios</li>
+                        <li>Word muestra el nombre del autor de cada comentario</li>
+                        <li>Los comentarios se pueden filtrar por autor</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 9</h3>
+
+                    <h4>Activar y usar el Control de cambios (Track Changes)</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Control de cambios</strong></li>
+                        <li>Haz clic en <strong>"Control de cambios"</strong> para activarlo (el boton se resalta)</li>
+                        <li>Ahora todo lo que escribas o elimines se marcara:
+                            <ul>
+                                <li><strong>Texto nuevo:</strong> Aparece subrayado en el color del autor</li>
+                                <li><strong>Texto eliminado:</strong> Aparece tachado en el color del autor</li>
+                                <li><strong>Movimientos:</strong> Se indican con lineas de conexion</li>
+                                <li><strong>Cambios de formato:</strong> Se indican con globos en el margen</li>
+                            </ul>
+                        </li>
+                        <li>Para ver los cambios de diferentes maneras:
+                            <ul>
+                                <li><strong>Todo marcado:</strong> Muestra todos los cambios con colores</li>
+                                <li><strong>Simple:</strong> Muestra los cambios en el margen</li>
+                                <li><strong>Sin marcas:</strong> Oculta las marcas (pero los cambios siguen ahi)</li>
+                                <li><strong>Original:</strong> Muestra el documento como estaba antes de los cambios</li>
+                            </ul>
+                        </li>
+                        <li>Cambia la vista en <strong>REVISAR → Mostrar marcado → [opcion deseada]</strong></li>
+                    </ol>
+
+                    <h4>Configurar opciones de Control de cambios</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Control de cambios → Opciones de control de cambios...</strong></li>
+                        <li>Configura:
+                            <ul>
+                                <li><strong>Color de las marcas:</strong> Por autor, rojo, azul, etc.</li>
+                                <li><strong>Mostrar cambios en:</strong> Globos, texto en linea, o ambos</li>
+                                <li><strong>Cambios a rastrear:</strong> Inserciones, eliminaciones, movimientos, cambios de formato</li>
+                                <li><strong>Mostrar revisiones de:</strong> Todos los revisores o solo algunos</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                    </ol>
+
+                    <h4>Aceptar y rechazar cambios individualmente</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Siguiente</strong> para ir al siguiente cambio</li>
+                        <li>Para <strong>aceptar</strong> el cambio:
+                            <ul>
+                                <li>Haz clic en <strong>ACEPTAR</strong> (marca de verificacion)</li>
+                                <li>O haz clic derecho sobre el cambio → <strong>Aceptar cambio</strong></li>
+                                <li>El cambio se integra permanentemente al documento</li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>rechazar</strong> el cambio:
+                            <ul>
+                                <li>Haz clic en <strong>RECHAZAR</strong> (X)</li>
+                                <li>O haz clic derecho sobre el cambio → <strong>Rechazar cambio</strong></li>
+                                <li>El cambio se elimina y el texto vuelve a su estado original</li>
+                            </ul>
+                        </li>
+                        <li>Para <strong>aceptar todos</strong> los cambios: <strong>REVISAR → Aceptar → Aceptar todos los cambios</strong></li>
+                        <li>Para <strong>rechazar todos</strong> los cambios: <strong>REVISAR → Rechazar → Rechazar todos los cambios</strong></li>
+                    </ol>
+
+                    <h4>Comparar dos versiones de un documento</h4>
+                    <ol>
+                        <li>Ve a <strong>REVISAR → Comparar → Comparar...</strong></li>
+                        <li>En "Documento original", selecciona la version anterior</li>
+                        <li>En "Documento revisado", selecciona la version nueva</li>
+                        <li>Haz clic en <strong>MÁS >></strong> para configurar:
+                            <ul>
+                                <li><strong>Cambios de formato:</strong> Si deseas comparar tambien cambios de formato</li>
+                                <li><strong>Tablas:</strong> Si deseas comparar cambios en tablas</li>
+                                <li><strong>Campos:</strong> Si deseas comparar campos de formulario</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Word muestra un nuevo documento con:
+                            <ul>
+                                <li><strong>Panel izquierdo:</strong> Lista de todos los cambios encontrados</li>
+                                <li><strong>Panel central:</strong> Documento combinado con las marcas</li>
+                                <li><strong>Panel derecho:</strong> Documento original y revisado uno al lado del otro</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Gestionar comentarios en grupo</h4>
+                    <ol>
+                        <li><strong>Agregar un comentario:</strong>
+                            <ul>
+                                <li>Selecciona el texto relacionado</li>
+                                <li><strong>INSERTAR → Comentario</strong> o <strong>Ctrl + Alt + M</strong></li>
+                                <li>Escribe tu comentario en el panel lateral</li>
+                            </ul>
+                        </li>
+                        <li><strong>Responder a un comentario:</strong>
+                            <ul>
+                                <li>Haz clic en el comentario existente</li>
+                                <li>Escribe tu respuesta en el cuadro "Responder"</li>
+                                <li>Presiona <strong>Enter</strong></li>
+                            </ul>
+                        </li>
+                        <li><strong>Filtrar comentarios por autor:</strong>
+                            <ul>
+                                <li>En el panel de comentarios, haz clic en <strong>"Mostrar comentarios"</strong></li>
+                                <li>Selecciona o deselecciona autores para mostrar solo los que deseas</li>
+                            </ul>
+                        </li>
+                        <li><strong>Resolver un comentario:</strong>
+                            <ul>
+                                <li>Haz clic en <strong>"Resolver"</strong> junto al comentario</li>
+                                <li>El comentario se oculta pero permanece en el historial</li>
+                                <li>Puedes <strong>"Reabrir"</strong> el comentario si es necesario</li>
+                            </ul>
+                        </li>
+                        <li><strong>Eliminar comentarios:</strong>
+                            <ul>
+                                <li><strong>Eliminar este comentario:</strong> Solo el comentario seleccionado</li>
+                                <li><strong>Eliminar todos los comentarios:</strong> Todos los comentarios del documento</li>
+                                <li><strong>Eliminar comentarios resueltos:</strong> Solo los que ya fueron resueltos</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Ver el historial de versiones del documento</h4>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Informacion → Administrar documento → Versiones</strong></li>
+                        <li>Word muestra una lista de <strong>versiones anteriores</strong> guardadas automaticamente</li>
+                        <li>Haz clic en una version para <strong>abrirla</strong></li>
+                        <li>Si deseas <strong>restaurar</strong> esa version:
+                            <ul>
+                                <li>Haz clic en <strong>"Restaurar"</strong></li>
+                                <li>Word reemplaza la version actual con la seleccionada</li>
+                            </ul>
+                        </li>
+                        <li>Si deseas <strong>comparar</strong> con la version actual:
+                            <ul>
+                                <li>Haz clic en <strong>"Comparar"</strong></li>
+                                <li>Word muestra las diferencias entre ambas versiones</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Guardar versiones manuales del documento</h4>
+                    <ol>
+                        <li>Ve a <strong>ARCHIVO → Guardar como</strong></li>
+                        <li>Usa nombres descriptivos que incluyan la fecha o version:
+                            <ul>
+                                <li>"Informe_v1_borrador.docx"</li>
+                                <li>"Informe_v2_revisado.docx"</li>
+                                <li>"Informe_v3_final.docx"</li>
+                            </ul>
+                        </li>
+                        <li>O usa <strong>ARCHIVO → Guardar como → Version anterior</strong> (si esta disponible)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 9</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li><strong>Activa el Control de cambios</strong> y realiza 10 modificaciones en un documento (agregar, eliminar, mover texto)</li>
+                        <li><strong>Cambia la vista</strong> de marcado entre "Todo marcado", "Simple" y "Sin marcas"</li>
+                        <li><strong>Acepta 5 cambios</strong> y <strong>rechaza 3 cambios</strong> individualmente</li>
+                        <li><strong>Compara dos versiones</strong> de un documento usando REVISAR → Comparar</li>
+                        <li><strong>Agrega 5 comentarios</strong> en diferentes partes del texto</li>
+                        <li><strong>Responde a 2 comentarios</strong> y <strong>resuelve 1 comentario</strong></li>
+                        <li><strong>Revisa el historial de versiones</strong> y abre una version anterior</li>
+                        <li><strong>Guarda el documento</strong> con un nombre que incluya la version (ej: "Documento_v2.docx")</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 9</h3>
+                    <p><strong>Nombra tus versiones:</strong> Usa un sistema de numeracion claro (v1, v2, v3) o fechas (2026-05-18) en los nombres de archivo. Evita nombres como "final", "final_final", "definitivo" que generan confusion.</p>
+                    <p><strong>Resuelve comentarios a tiempo:</strong> No dejes comentarios sin resolver por mucho tiempo. Resuelvelos cuando se haya tomado una decision o se haya realizado la accion sugerida. Un documento con 50 comentarios abiertos es dificil de gestionar.</p>
+                </div>
+            </div>
+
+            <h2><span class="icon">🎨</span> TEMA 10: Aplicacion de Estilos de Texto</h2>
+
+            <div class="definition-area">
+                <div class="area-content">
+                    <h3>📖 Estilos de texto en Word</h3>
+                    <p>Los <strong>estilos de texto</strong> son conjuntos predefinidos de formato (fuente, tamano, color, espaciado, alineacion) que se aplican a parrafos o caracteres. Su principal ventaja es mantener la <strong>consistencia visual</strong> en todo el documento y permitir la generacion automatica de tablas de contenido.</p>
+                    <p><strong>Tipos de estilos en Word:</strong></p>
+                    <ul>
+                        <li><strong>Estilos de parrafo:</strong> Afectan todo el parrafo (Titulo 1, Titulo 2, Normal, Encabezado)</li>
+                        <li><strong>Estilos de caracter:</strong> Afectan solo el texto seleccionado (Negrita, Cursiva, Subrayado)</li>
+                        <li><strong>Estilos de tabla:</strong> Formatos predefinidos para tablas</li>
+                        <li><strong>Estilos de lista:</strong> Formatos para viñetas y numeracion</li>
+                    </ul>
+                    <p><strong>Por que usar estilos:</strong></p>
+                    <ul>
+                        <li>Mantienen <strong>consistencia</strong> en todo el documento automaticamente</li>
+                        <li>Permiten <strong>generar automaticamente</strong> tablas de contenido</li>
+                        <li>Facilitan la creacion de <strong>indices y referencias cruzadas</strong></li>
+                        <li>Ahorran tiempo: cambia el formato de todo el documento modificando un solo estilo</li>
+                        <li>Hacen el documento mas <strong>accesible</strong> para lectores con discapacidad visual</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="notebook-area">
+                <div class="area-content">
+                    <h3>📓 COPIAR EN CUADERNO - Tema 10</h3>
+
+                    <h4>Estilos de parrafo principales</h4>
+                    <p>Se encuentran en la pestana INICIO, grupo ESTILOS:</p>
+                    <ul>
+                        <li><strong>NORMAL:</strong> Texto estandar del documento (fuente base, tamano base)</li>
+                        <li><strong>TITULO 1:</strong> Capitulo principal (nivel mas alto de jerarquia)</li>
+                        <li><strong>TITULO 2:</strong> Seccion dentro de un capitulo</li>
+                        <li><strong>TITULO 3:</strong> Subseccion dentro de una seccion</li>
+                        <li><strong>TITULO 4 al 9:</strong> Niveles de subsecciones cada vez mas especificos</li>
+                        <li><strong>TITULO:</strong> Titulo principal del documento (aparece en portada)</li>
+                        <li><strong>SUBTITULO:</strong> Subtitulo del documento</li>
+                    </ul>
+                    <p><strong>IMPORTANTE:</strong> Para generar tabla de contenido automatica, DEBES usar Titulo 1, Titulo 2, Titulo 3. NO uses formato directo (negrita, tamano grande) para simular titulos.</p>
+
+                    <h4>Aplicar un estilo de parrafo</h4>
+                    <ol>
+                        <li>Coloca el cursor en el parrafo que deseas formatear (no necesitas seleccionar todo el texto)</li>
+                        <li>Ve a <strong>INICIO → grupo ESTILOS</strong></li>
+                        <li>Haz clic en el estilo deseado (Titulo 1, Titulo 2, Normal, etc.)</li>
+                        <li>El parrafo completo adopta el formato del estilo seleccionado</li>
+                        <li>Para ver mas estilos: haz clic en la flecha pequena inferior derecha del grupo Estilos</li>
+                    </ol>
+
+                    <h4>Crear un estilo de parrafo personalizado</h4>
+                    <ol>
+                        <li>Formatea un parrafo exactamente como deseas (fuente, tamano, color, alineacion, interlineado, espaciado)</li>
+                        <li>Selecciona el parrafo completamente formateado</li>
+                        <li>Ve a <strong>INICIO → Estilos → Más → Crear un estilo...</strong></li>
+                        <li>Asigna un <strong>NOMBRE descriptivo</strong> (ej: "Titulo Principal", "Cita", "Nota Importante")</li>
+                        <li>Elige si esta <strong>BASADO EN</strong> otro estilo existente</li>
+                        <li>Selecciona <strong>ESTILO SIGUIENTE</strong> (que estilo se aplica al presionar Enter)</li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Tu estilo personalizado aparecera en la galeria de estilos</li>
+                    </ol>
+
+                    <h4>Modificar un estilo existente</h4>
+                    <ol>
+                        <li>Abre el <strong>Panel de Estilos</strong>: INICIO → Estilos → flecha pequena esquina inferior derecha</li>
+                        <li>Haz <strong>clic derecho</strong> sobre el estilo que deseas modificar</li>
+                        <li>Selecciona <strong>MODIFICAR...</strong></li>
+                        <li>Cambia:
+                            <ul>
+                                <li><strong>Fuente:</strong> Tipo de letra, tamano, color, negrita, cursiva</li>
+                                <li><strong>Alineacion:</strong> Izquierda, centrada, derecha, justificada</li>
+                                <li><strong>Interlineado:</strong> Simple, 1.5, doble, etc.</li>
+                                <li><strong>Espaciado:</strong> Antes y despues del parrafo</li>
+                                <li><strong>Sangria:</strong> Izquierda, derecha, primera linea</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>FORMATO</strong> para opciones avanzadas (Fuente, Parrafo, Tabulaciones, Borde)</li>
+                        <li>En la parte inferior, selecciona si afecta <strong>"Solo a este documento"</strong> o <strong>"A nuevos documentos basados en esta plantilla"</strong></li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Todos los parrafos con ese estilo se actualizaran automaticamente</li>
+                    </ol>
+
+                    <h4>Formato directo vs. Estilos</h4>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Caracteristica</th>
+                                <th>Formato directo</th>
+                                <th>Estilos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Como se aplica</strong></td>
+                                <td>Seleccionas texto y cambias formato manualmente</td>
+                                <td>Haces clic en un estilo predefinido</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cambios globales</strong></td>
+                                <td>Debes buscar y cambiar cada ocurrencia</td>
+                                <td>Modificas el estilo una vez y todo se actualiza</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tabla de contenido</strong></td>
+                                <td>No genera tabla de contenido automatica</td>
+                                <td>Genera tabla de contenido automatica</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Consistencia</strong></td>
+                                <td>Facilmente inconsistente</td>
+                                <td>Perfectamente consistente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accesibilidad</strong></td>
+                                <td>Dificil para lectores con discapacidad</td>
+                                <td>Compatible con lectores de pantalla</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Crear estilo de caracter personalizado</h4>
+                    <ol>
+                        <li>Selecciona texto con el formato deseado (ej: una palabra en verde y negrita)</li>
+                        <li>Ve a <strong>INICIO → Estilos → Más → Crear un estilo...</strong></li>
+                        <li>Asigna un <strong>NOMBRE</strong> (ej: "Palabra Clave", "Termino Tecnico")</li>
+                        <li>En "Tipo de estilo" cambia de <strong>"Parrafo"</strong> a <strong>"Caracter"</strong></li>
+                        <li>En <strong>MODIFICAR</strong> ajusta: Fuente, tamano, negrita, cursiva, color, subrayado, efectos</li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Ahora puedes aplicar este estilo a cualquier palabra o frase seleccionada</li>
+                    </ol>
+                    <p><em>Uso: Resaltar palabras clave, nombres propios, terminos tecnicos de forma consistente en todo el documento.</em></p>
+
+                    <h4>Usar temas para consistencia global</h4>
+                    <ol>
+                        <li>Ve a la pestana <strong>DISEÑO</strong></li>
+                        <li>En el grupo <strong>TEMAS</strong>, haz clic en la flecha desplegable</li>
+                        <li>Selecciona un tema predefinido (Office, Facet, Ion, Organic, etc.)</li>
+                        <li>Al aplicar un tema cambia automaticamente:
+                            <ul>
+                                <li><strong>FUENTES DEL TITULO:</strong> Usada en Titulo 1, Titulo 2, etc.</li>
+                                <li><strong>FUENTES DEL CUERPO:</strong> Usada en texto Normal</li>
+                                <li><strong>COLORES DEL TEMA:</strong> Paleta coordinada de colores</li>
+                                <li><strong>EFECTOS:</strong> Visuales para formas y graficos</li>
+                            </ul>
+                        </li>
+                        <li>Para personalizar: <strong>DISEÑO → Colores → Personalizar colores...</strong> o <strong>Fuentes → Personalizar fuentes...</strong></li>
+                    </ol>
+
+                    <h4>Configurar fuente y formato predeterminados</h4>
+                    <ol>
+                        <li>Ve a <strong>INICIO → Estilos</strong> (flecha pequena para abrir el panel)</li>
+                        <li>Haz <strong>clic derecho</strong> en "Normal" → <strong>MODIFICAR...</strong></li>
+                        <li>Cambia fuente, tamano y atributos del texto base</li>
+                        <li>En la parte inferior, selecciona <strong>"Nuevos documentos basados en esta plantilla"</strong></li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>Todos los nuevos documentos usaran esta configuracion como predeterminada</li>
+                    </ol>
+
+                    <h4>Generar tabla de contenido automatica (usando estilos)</h4>
+                    <ol>
+                        <li>Asegurate de que todos los titulos usan los estilos <strong>Titulo 1, Titulo 2, Titulo 3</strong></li>
+                        <li>Coloca el cursor al <strong>inicio del documento</strong> (antes del primer titulo)</li>
+                        <li>Ve a <strong>REFERENCIAS → Tabla de contenido</strong></li>
+                        <li>Elige un estilo: <strong>Automatica 1, Automatica 2</strong>, o <strong>Manual</strong></li>
+                        <li>Para personalizar: selecciona <strong>"Insertar tabla de contenido..."</strong>
+                            <ul>
+                                <li><strong>Mostrar niveles:</strong> 1 a 9 (recomendado 3)</li>
+                                <li><strong>Mostrar numeros de pagina:</strong> Si</li>
+                                <li><strong>Alinear numeros a la derecha:</strong> Si</li>
+                                <li><strong>Formato:</strong> Clasico, Moderno, Formal, etc.</li>
+                            </ul>
+                        </li>
+                        <li>Haz clic en <strong>ACEPTAR</strong></li>
+                        <li>La tabla de contenido se genera automaticamente con los titulos y numeros de pagina</li>
+                        <li>Para actualizar: haz clic derecho en la tabla → <strong>Actualizar campo</strong> → <strong>Tabla completa</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="computer-area">
+                <div class="area-content">
+                    <h3>💻 TRABAJAR EN COMPUTADORA - Tema 10</h3>
+                    <p><strong>Ejercicios practicos:</strong></p>
+                    <ol>
+                        <li>Crea un documento con <strong>3 capitulos</strong> y aplica Titulo 1, Titulo 2 y Titulo 3 a los diferentes niveles</li>
+                        <li>Crea un <strong>estilo personalizado</strong> llamado "Mi Titulo" con Arial, 16pt, azul, negrita</li>
+                        <li><strong>Modifica el estilo "Normal"</strong> para usar interlineado 1.5 y fuente Calibri 12pt</li>
+                        <li>Crea un <strong>estilo de caracter</strong> llamado "Palabra Clave" con color verde y negrita</li>
+                        <li>Aplica tu estilo de caracter a <strong>5 palabras diferentes</strong> en el documento</li>
+                        <li>Prueba <strong>3 temas diferentes</strong> y observa como cambian las fuentes y colores</li>
+                        <li>Genera una <strong>tabla de contenido automatica</strong> al inicio del documento</li>
+                        <li>Agrega un nuevo capitulo con Titulo 1 y <strong>actualiza la tabla de contenido</strong></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="tip-area">
+                <div class="area-content">
+                    <h3>💡 CONSEJO IMPORTANTE - Tema 10</h3>
+                    <p><strong>Nunca uses formato directo para titulos:</strong> Si haces un texto grande y negrita manualmente, Word NO lo reconocera como titulo para la tabla de contenido. Siempre usa los estilos Titulo 1, Titulo 2, etc. Es la unica forma de que Word entienda la estructura de tu documento.</p>
+                    <p><strong>Modificar estilo Normal:</strong> Si cambias el estilo Normal (interlineado, fuente), TODOS los parrafos con estilo Normal se actualizaran automaticamente. Es mucho mas eficiente que cambiar cada parrafo individualmente.</p>
+                </div>
+            </div>
+
+            <div class="exercise-area">
+                <div class="area-content">
+                    <h3>🎯 EJERCICIOS PRACTICOS - Dia 5 (Evaluacion Integral)</h3>
+                    <ul class="checklist">
+                        <li>Crea un documento completo con portada, tabla de contenido automatica, 3 capitulos con estilos</li>
+                        <li>Activa Control de cambios y realiza 5 modificaciones, luego aceptalas o rechazalas</li>
+                        <li>Agrega 3 comentarios, responde a 1 y resuelve otro</li>
+                        <li>Crea un indice tematico con al menos 8 entradas marcadas</li>
+                        <li>Agrega 3 fuentes bibliograficas y genera la bibliografia en formato APA</li>
+                        <li>Crea un estilo de parrafo personalizado y un estilo de caracter personalizado</li>
+                        <li>Usa el tesauro para reemplazar 5 palabras repetidas</li>
+                        <li>Revisa la ortografia y gramatica con F7</li>
+                        <li>Guarda el documento en OneDrive y compartelo con permiso de edicion</li>
+                        <li>Exporta el documento final como PDF</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="homework-box">
+                <h4>🏠 Tarea Final del Curso:</h4>
+                <p>Revisa tu <strong>documento de evaluacion</strong> y asegurate de que cumpla con todos los requisitos. Practica la <strong>actualizacion de la tabla de contenido</strong> despues de hacer cambios. Experimenta con <strong>diferentes temas y estilos</strong> hasta encontrar el que mas te guste. Recuerda que <strong>la practica constante</strong> es la clave para dominar Microsoft Word. ¡Sigue explorando y descubriendo nuevas funciones!</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>📚 Guia Completa de Microsoft Word - 10 Contenidos Avanzados</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Indices, Revision, Documentos Profesionales y Colaboracion</p>
+            <p style="margin-top: 5px; opacity: 0.8;">Semana del 01 al 05 de Julio de 2026</p>
+                        <div id="footer-clock" class="clock-widget clock-footer">
+                <div class="clock-time">--:--:--</div>
+                <div class="clock-date">Cargando fecha...</div>
+                <div class="clock-task" style="display:none;">
+                    <div class="clock-task-label">📚 Tarea del dia</div>
+                    <div class="clock-task-text"></div>
+                </div>
+            </div>
+
+            <div class="teacher-info">
+                <p style="font-size: 1.1em; font-weight: bold;">Material Educativo</p>
+                <p style="font-size: 1.2em; margin-top: 5px;">Escuela Nacional de Ciencias Comerciales Solola</p>
+                <p style="font-size: 0.9em; opacity: 0.8; margin-top: 5px;">Formando lideres para el desarrollo de Guatemala</p>
+            </div>
+        </footer>
+    </div>
+
+        <button class="back-to-top" id="backToTop" title="Volver arriba">⬆️</button>
+    
+    <script>
+    (function() {
+        // ===== SCROLL PROGRESS =====
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            document.getElementById('scrollProgress').style.width = progress + '%';
+        }
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== DARK MODE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('wordGuideTheme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('wordGuideTheme', isDark ? 'dark' : 'light');
+        });
+
+        // ===== COLLAPSIBLE SECTIONS =====
+        document.querySelectorAll('.notebook-area, .computer-area, .image-area, .definition-area, .exercise-area, .tip-area').forEach(function(area) {
+            const content = area.querySelector('.area-content');
+            if (!content) return;
+
+            // Make the ::before pseudo-element clickable by adding a toggle header
+            const toggleHeader = document.createElement('div');
+            toggleHeader.className = 'area-toggle';
+            toggleHeader.style.cssText = 'cursor:pointer; position:relative;';
+            toggleHeader.innerHTML = '<span style="opacity:0;">.</span>';
+            area.insertBefore(toggleHeader, content);
+
+            toggleHeader.addEventListener('click', function() {
+                content.classList.toggle('collapsed');
+                toggleHeader.classList.toggle('collapsed');
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS (fade in sections) =====
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.day-section').forEach(function(section) {
+            observer.observe(section);
+        });
+
+        // ===== ACTIVE DAY HIGHLIGHT =====
+        function highlightCurrentDay() {
+            const now = new Date();
+            const day = now.getDate();
+            const month = now.getMonth();
+            const year = now.getFullYear();
+
+            if (year === 2026 && month === 6) { // July = month 6
+                const dayMap = { 1: 'lunes01', 2: 'martes02', 3: 'miercoles03', 4: 'jueves04', 5: 'viernes05' };
+                const targetId = dayMap[day];
+                if (targetId) {
+                    document.querySelectorAll('.day-nav a').forEach(function(link) {
+                        link.classList.remove('current-day');
+                        if (link.getAttribute('href') === '#' + targetId) {
+                            link.classList.add('current-day');
+                            link.textContent = '⭐ ' + link.textContent.trim();
+                        }
+                    });
+                }
+            }
+        }
+        highlightCurrentDay();
+
+        // ===== SEARCH FUNCTIONALITY =====
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const searchBtn = document.getElementById('searchBtn');
+
+        // Build search index
+        const searchIndex = [];
+        document.querySelectorAll('.day-section').forEach(function(section) {
+            const dayHeader = section.querySelector('.day-header h2');
+            const dayTheme = section.querySelector('.day-theme');
+            const dayId = section.id;
+            const dayTitle = dayHeader ? dayHeader.textContent.trim() : '';
+            const themeText = dayTheme ? dayTheme.textContent.trim() : '';
+
+            // Index topics (h2, h3, h4)
+            section.querySelectorAll('h2, h3, h4').forEach(function(heading) {
+                searchIndex.push({
+                    text: heading.textContent.trim().toLowerCase(),
+                    title: dayTitle + ' - ' + heading.textContent.trim(),
+                    element: heading,
+                    sectionId: dayId
+                });
+            });
+
+            // Index key terms in definitions
+            section.querySelectorAll('.definition-area p strong').forEach(function(term) {
+                searchIndex.push({
+                    text: term.textContent.trim().toLowerCase(),
+                    title: dayTitle + ' - Definicion: ' + term.textContent.trim(),
+                    element: term,
+                    sectionId: dayId
+                });
+            });
+        });
+
+        function performSearch(query) {
+            searchResults.innerHTML = '';
+            if (!query || query.length < 2) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            query = query.toLowerCase();
+            const matches = [];
+
+            searchIndex.forEach(function(item) {
+                if (item.text.includes(query)) {
+                    // Get preview text
+                    let preview = '';
+                    const parent = item.element.closest('.area-content, .day-section');
+                    if (parent) {
+                        const text = parent.textContent.substring(0, 200);
+                        preview = text.split(/\s+/).join(' ').trim() + '...';
+                    }
+                    matches.push({
+                        title: item.title,
+                        element: item.element,
+                        sectionId: item.sectionId,
+                        preview: preview
+                    });
+                }
+            });
+
+            // Remove duplicates
+            const seen = new Set();
+            const uniqueMatches = matches.filter(function(m) {
+                if (seen.has(m.title)) return false;
+                seen.add(m.title);
+                return true;
+            }).slice(0, 10);
+
+            if (uniqueMatches.length === 0) {
+                searchResults.innerHTML = '<div class="search-result-item"><span class="search-result-title">No se encontraron resultados</span></div>';
+            } else {
+                uniqueMatches.forEach(function(match) {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.innerHTML = '<div class="search-result-title">' + match.title + '</div>' +
+                        (match.preview ? '<div class="search-result-preview">' + match.preview + '</div>' : '');
+                    div.addEventListener('click', function() {
+                        document.getElementById(match.sectionId).scrollIntoView({ behavior: 'smooth' });
+                        // Highlight the element briefly
+                        match.element.style.transition = 'background 0.5s';
+                        match.element.style.background = '#fff3cd';
+                        setTimeout(function() {
+                            match.element.style.background = '';
+                        }, 2000);
+                        searchResults.classList.remove('active');
+                        searchInput.value = '';
+                    });
+                    searchResults.appendChild(div);
+                });
+            }
+            searchResults.classList.add('active');
+        }
+
+        searchInput.addEventListener('input', function() {
+            performSearch(this.value);
+        });
+        searchBtn.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') performSearch(this.value);
+            if (e.key === 'Escape') {
+                searchResults.classList.remove('active');
+                searchInput.value = '';
+            }
+        });
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // ===== EXISTING CLOCK CODE (keep it) =====
+        const taskSchedule = {
+            1: { day: 'Lunes', themes: 'Tema 1: Creacion de Indices y Bibliografia | Tema 2: Herramientas de Revision y Correccion' },
+            2: { day: 'Martes', themes: 'Tema 3: Uso del Diccionario y Sinonimos | Tema 4: Documentos Profesionales' },
+            3: { day: 'Miercoles', themes: 'Tema 5: Elaboracion de Folletos y Boletines | Tema 6: Formularios Interactivos' },
+            4: { day: 'Jueves', themes: 'Tema 7: Trabajo Colaborativo | Tema 8: OneDrive y Word en la Nube' },
+            5: { day: 'Viernes', themes: 'Tema 9: Control de Versiones y Comentarios | Tema 10: Estilos de Texto' }
+        };
+
+        const monthNames = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        const dayNames = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+
+        function pad(n) { return n < 10 ? '0' + n : n; }
+
+        function updateClock(elementId) {
+            const now = new Date();
+            const hours = pad(now.getHours());
+            const minutes = pad(now.getMinutes());
+            const seconds = pad(now.getSeconds());
+            const dayName = dayNames[now.getDay()];
+            const dayNum = now.getDate();
+            const month = monthNames[now.getMonth()];
+            const year = now.getFullYear();
+
+            const container = document.getElementById(elementId);
+            if (!container) return;
+
+            container.querySelector('.clock-time').textContent = hours + ':' + minutes + ':' + seconds;
+            container.querySelector('.clock-date').textContent = dayName + ', ' + dayNum + ' de ' + month + ' de ' + year;
+
+            const taskEl = container.querySelector('.clock-task');
+            if (now.getFullYear() === 2026 && now.getMonth() === 6 && taskSchedule[dayNum]) {
+                const task = taskSchedule[dayNum];
+                taskEl.style.display = 'block';
+                taskEl.querySelector('.clock-task-text').textContent = task.themes;
+            } else {
+                taskEl.style.display = 'none';
+            }
+        }
+
+        function initClock(elementId) {
+            updateClock(elementId);
+            setInterval(function() { updateClock(elementId); }, 1000);
+        }
+
+        initClock('header-clock');
+        initClock('footer-clock');
+    })();
+    </script>
+
+
+</body>
+</html>
