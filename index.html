@@ -471,7 +471,31 @@
             .definition-area, .exercise-area, .tip-area {
                 padding: 20px;
             }
-            .day-nav a { padding: 8px 12px; font-size: 0.8em; }
+            .day-nav { 
+                padding: 10px 14px; 
+                gap: 6px;
+                top: 8px;
+                border-radius: 16px;
+            }
+            .day-nav a { padding: 7px 10px; font-size: 0.75em; }
+            .nav-theme-toggle { 
+                width: 32px; 
+                height: 32px; 
+                font-size: 0.9em;
+                margin-left: 4px;
+            }
+            .nav-spacer.active { height: 70px; }
+        }
+        @media (max-width: 480px) {
+            .day-nav a { 
+                padding: 6px 8px; 
+                font-size: 0.7em; 
+                border-radius: 20px;
+            }
+            .day-nav { 
+                padding: 8px 10px; 
+                gap: 4px;
+            }
         }
     
 /* ===== CLOCK WIDGET WITH CHANGING BACKGROUND IMAGES ===== */
@@ -679,30 +703,41 @@
         }
 
         /* ===== DARK MODE TOGGLE ===== */
-        .theme-toggle {
-            position: fixed;
-            top: 18px;
-            right: 18px;
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.96);
+        /* Theme toggle inside nav bar - compact & elegant */
+        .nav-theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3em;
-            z-index: 1001;
+            font-size: 1em;
+            margin-left: 8px;
             box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.15),
-                0 1px 4px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+                0 2px 8px rgba(245, 158, 11, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
         }
-        .theme-toggle:hover {
-            transform: scale(1.15) rotate(20deg);
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+        .nav-theme-toggle:hover {
+            transform: scale(1.12) rotate(15deg);
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+        }
+        .nav-theme-toggle:active {
+            transform: scale(0.95);
+        }
+        /* Dark mode state of the toggle */
+        body.dark-mode .nav-theme-toggle {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 
+                0 2px 8px rgba(99, 102, 241, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        body.dark-mode .nav-theme-toggle:hover {
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
         }
 
         /* ===== DARK MODE STYLES ===== */
@@ -712,9 +747,13 @@
         body.dark-mode header,
         body.dark-mode .day-section,
         body.dark-mode .day-nav {
-            background: rgba(15, 23, 42, 0.97);
+            background: rgba(15, 23, 42, 0.95);
             color: #e2e8f0;
-            border-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.35),
+                0 3px 10px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         body.dark-mode .day-nav a {
             background: linear-gradient(135deg, #475569 0%, #334155 100%);
@@ -949,7 +988,6 @@
     <base target="_blank">
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" title="Cambiar tema">🌙</button>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="container">
         <header>
@@ -997,12 +1035,14 @@
             </div>
         </header>
 
-        <div class="day-nav">
+        <div class="nav-spacer" id="navSpacer"></div>
+        <div class="day-nav" id="dayNav">
             <a href="#lunes01">📘 Lunes 18/05</a>
             <a href="#martes02">📗 Martes 19/05</a>
             <a href="#miercoles03">📙 Miercoles 20/05</a>
             <a href="#jueves04">📕 Jueves 21/05</a>
             <a href="#viernes05">📓 Viernes 22/05</a>
+            <button class="nav-theme-toggle" id="themeToggle" title="Cambiar tema">🌙</button>
         </div>
 
         <section class="day-section" id="lunes01">
@@ -2749,14 +2789,68 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== DARK MODE =====
+        // ===== SMART NAV: hide on scroll down, show on scroll up =====
+        const dayNav = document.getElementById('dayNav');
+        const navSpacer = document.getElementById('navSpacer');
+        let lastScrollY = window.scrollY;
+        let scrollDirection = 'up';
+        let scrollTimeout;
+
+        function handleSmartNav() {
+            const currentScrollY = window.scrollY;
+            const scrollDelta = currentScrollY - lastScrollY;
+
+            // Determine direction
+            if (scrollDelta > 5) {
+                scrollDirection = 'down';
+            } else if (scrollDelta < -5) {
+                scrollDirection = 'up';
+            }
+
+            // Show/hide logic
+            if (scrollDirection === 'down' && currentScrollY > 200) {
+                // Scrolling down and past header: hide nav
+                dayNav.classList.add('nav-hidden');
+                dayNav.classList.remove('nav-visible');
+                navSpacer.classList.remove('active');
+            } else if (scrollDirection === 'up' || currentScrollY <= 200) {
+                // Scrolling up or near top: show nav
+                dayNav.classList.remove('nav-hidden');
+                dayNav.classList.add('nav-visible');
+                if (currentScrollY > 100) {
+                    navSpacer.classList.add('active');
+                } else {
+                    navSpacer.classList.remove('active');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        }
+
+        // Throttled scroll listener for smooth performance
+        window.addEventListener('scroll', function() {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(function() {
+                handleSmartNav();
+                scrollTimeout = null;
+            }, 15);
+        });
+
+        // Initial state
+        if (window.scrollY <= 200) {
+            dayNav.classList.add('nav-visible');
+        }
+
+        // ===== DARK MODE (now inside nav) =====
         const themeToggle = document.getElementById('themeToggle');
         const savedTheme = localStorage.getItem('wordGuideTheme');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
             themeToggle.textContent = '☀️';
         }
-        themeToggle.addEventListener('click', function() {
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             themeToggle.textContent = isDark ? '☀️' : '🌙';
