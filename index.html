@@ -484,7 +484,7 @@
                 font-size: 0.9em;
                 margin-left: 4px;
             }
-            .nav-spacer.active { height: 70px; }
+
         }
         @media (max-width: 480px) {
             .day-nav a { 
@@ -1035,7 +1035,6 @@
             </div>
         </header>
 
-        <div class="nav-spacer" id="navSpacer"></div>
         <div class="day-nav" id="dayNav">
             <a href="#lunes01">📘 Lunes 18/05</a>
             <a href="#martes02">📗 Martes 19/05</a>
@@ -2789,57 +2788,87 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== SMART NAV: hide on scroll down, show on scroll up =====
+        // ===== AUTO-HIDE NAV: Completely fades out when not needed =====
+        // Goal: Full screen for reading content. Nav only appears on demand.
         const dayNav = document.getElementById('dayNav');
-        const navSpacer = document.getElementById('navSpacer');
         let lastScrollY = window.scrollY;
-        let scrollDirection = 'up';
         let scrollTimeout;
+        let hideTimeout;
+        let isScrolling = false;
+        const HIDE_DELAY = 2500; // Hide after 2.5 seconds of no scroll activity
+        const SHOW_THRESHOLD = 120; // px from top to always show nav
 
-        function handleSmartNav() {
+        function showNav() {
+            dayNav.classList.remove('nav-hidden');
+            dayNav.classList.add('nav-visible');
+        }
+
+        function hideNav() {
+            // Only hide if we've scrolled past the header area
+            if (window.scrollY > SHOW_THRESHOLD) {
+                dayNav.classList.add('nav-hidden');
+                dayNav.classList.remove('nav-visible');
+            }
+        }
+
+        function resetHideTimer() {
+            // Clear any pending hide
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            // Show nav immediately when user is active
+            showNav();
+            // Set timer to hide after inactivity
+            hideTimeout = setTimeout(function() {
+                if (!isScrolling) {
+                    hideNav();
+                }
+            }, HIDE_DELAY);
+        }
+
+        function handleScroll() {
             const currentScrollY = window.scrollY;
             const scrollDelta = currentScrollY - lastScrollY;
 
-            // Determine direction
-            if (scrollDelta > 5) {
-                scrollDirection = 'down';
-            } else if (scrollDelta < -5) {
-                scrollDirection = 'up';
-            }
+            isScrolling = true;
 
-            // Show/hide logic
-            if (scrollDirection === 'down' && currentScrollY > 200) {
-                // Scrolling down and past header: hide nav
-                dayNav.classList.add('nav-hidden');
-                dayNav.classList.remove('nav-visible');
-                navSpacer.classList.remove('active');
-            } else if (scrollDirection === 'up' || currentScrollY <= 200) {
-                // Scrolling up or near top: show nav
-                dayNav.classList.remove('nav-hidden');
-                dayNav.classList.add('nav-visible');
-                if (currentScrollY > 100) {
-                    navSpacer.classList.add('active');
-                } else {
-                    navSpacer.classList.remove('active');
-                }
+            // Always show nav while scrolling
+            showNav();
+
+            // Reset the hide timer
+            resetHideTimer();
+
+            // If near top, keep visible always
+            if (currentScrollY <= SHOW_THRESHOLD) {
+                if (hideTimeout) clearTimeout(hideTimeout);
             }
 
             lastScrollY = currentScrollY;
+
+            // Mark scrolling as stopped after a short delay
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                isScrolling = false;
+            }, 150);
         }
 
-        // Throttled scroll listener for smooth performance
-        window.addEventListener('scroll', function() {
-            if (scrollTimeout) return;
-            scrollTimeout = setTimeout(function() {
-                handleSmartNav();
-                scrollTimeout = null;
-            }, 15);
+        // Main scroll listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Also show nav when mouse moves near top of screen (edge detection)
+        let mouseTimeout;
+        document.addEventListener('mousemove', function(e) {
+            if (e.clientY < 80) {
+                // Mouse near top edge - show nav for easy access
+                showNav();
+                resetHideTimer();
+            }
         });
 
-        // Initial state
-        if (window.scrollY <= 200) {
-            dayNav.classList.add('nav-visible');
-        }
+        // Initial state: visible, then auto-hide after delay
+        showNav();
+        hideTimeout = setTimeout(hideNav, HIDE_DELAY);
 
         // ===== DARK MODE (now inside nav) =====
         const themeToggle = document.getElementById('themeToggle');
