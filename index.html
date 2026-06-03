@@ -7,6 +7,11 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        img, iframe, video, embed {
+            max-width: 100%;
+            height: auto;
+        }
+
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: linear-gradient(165deg, #0a0e1a 0%, #111827 25%, #1a2332 50%, #0f172a 75%, #080c14 100%);
@@ -14,6 +19,7 @@
             min-height: 100vh;
             color: #334155;
             line-height: 1.7;
+            overflow-x: hidden;
         }
 
         .container { 
@@ -58,6 +64,7 @@
         }
         .school-info img {
             width: 80px;
+            max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -548,6 +555,9 @@
                 0 6px 24px rgba(0, 0, 0, 0.08),
                 0 1px 4px rgba(0, 0, 0, 0.04);
             border: 1px solid #e2e8f0;
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .comparison-table th {
             background: linear-gradient(135deg, #3730a3 0%, #5b21b6 50%, #7c3aed 100%);
@@ -985,6 +995,7 @@
         body.dark-mode .comparison-table { background: #1e293b; border-color: #334155; }
         body.dark-mode .comparison-table td { border-bottom-color: #334155; color: #cbd5e1; }
         body.dark-mode .comparison-table tr:hover { background: #1e293b; }
+        body.dark-mode .comparison-table { display: block; overflow-x: auto; }
         body.dark-mode .notebook-area,
         body.dark-mode .computer-area,
         body.dark-mode .image-area,
@@ -1119,13 +1130,36 @@
             .definition-area, .exercise-area, .tip-area {
                 padding: 20px;
             }
-            
-            .day-nav a { padding: 7px 10px; font-size: 0.75em; }
+            .day-nav {
+                gap: 6px;
+                padding: 8px 14px;
+                max-width: 96vw;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                justify-content: flex-start;
+            }
+            .day-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .day-nav a { 
+                padding: 7px 10px; 
+                font-size: 0.75em; 
+                flex-shrink: 0;
+            }
             .nav-theme-toggle { 
                 width: 32px; 
                 height: 32px; 
                 font-size: 0.9em;
                 margin-left: 4px;
+                flex-shrink: 0;
+            }
+            .nav-clock {
+                padding: 7px 10px;
+                font-size: 0.75em;
+                flex-shrink: 0;
             }
             .clock-widget { padding: 16px 20px; min-height: 120px; }
             .clock-time { font-size: 1.7em; letter-spacing: 2px; }
@@ -1136,12 +1170,38 @@
             .clock-footer .clock-time { font-size: 1.15em; }
         }
         @media (max-width: 480px) {
-            .day-nav a { 
-                padding: 6px 8px; 
-                font-size: 0.7em; 
-                border-radius: 20px;
+            .day-nav {
+                gap: 6px;
+                padding: 8px 12px;
+                border-radius: 40px;
+                max-width: 95vw;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                justify-content: flex-start;
             }
-            
+            .day-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .day-nav a { 
+                padding: 6px 10px; 
+                font-size: 0.72em; 
+                border-radius: 20px;
+                flex-shrink: 0;
+            }
+            .nav-clock {
+                padding: 6px 10px;
+                font-size: 0.72em;
+                flex-shrink: 0;
+            }
+            .nav-theme-toggle {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85em;
+                flex-shrink: 0;
+            }
         }
 
         /* ===== PRINT ===== */
